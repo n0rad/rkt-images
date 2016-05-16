@@ -1,0 +1,14 @@
+name: awired.net/aci-arch-bftpd
+
+builder:
+  dependencies:
+    - awired.net/aci-arch-pacman-auto
+
+aci:
+  dependencies:
+    - awired.net/aci-base
+    - awired.net/aci-arch-minimal
+  app:
+    exec: [bftpd, -D, -c, /etc/bftpd/bftpd.conf]
+    mountPoints:
+      - {name: data, path: /srv/ftp, readOnly: false}

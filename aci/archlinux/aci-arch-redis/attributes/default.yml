@@ -1,0 +1,12 @@
+---
+default:
+  redis:
+    global:
+      port: 6379
+      rename_command:
+        keys: syek
+        flushall: llahsulf
+        flushdb: bdhsulf
+      maxclients: 16384
+    snap:
+      save: "900 10000"

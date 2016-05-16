@@ -1,0 +1,3 @@
+default:
+  bftpd:
+    port: 21

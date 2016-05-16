@@ -22,16 +22,24 @@ buildAci() {
 
 
 # none
-buildAci ${dir}/aci/aci-base
-buildAci ${dir}/aci/aci-libc
+buildAci ${dir}/aci/none/aci-base
+buildAci ${dir}/aci/none/aci-libc
 
 # archlinux
-buildAci ${dir}/aci/aci-arch-bootstrap
-buildAci ${dir}/aci/aci-arch-pacman
-buildAci ${dir}/aci/aci-arch-yaourt
+buildAci ${dir}/aci/archlinux/aci-arch-bootstrap
+buildAci ${dir}/aci/archlinux/aci-arch-pacman
+buildAci ${dir}/aci/archlinux/aci-arch-pacman-auto
+buildAci ${dir}/aci/archlinux/aci-arch-yaourt
+buildAci ${dir}/aci/archlinux/aci-arch-minimal
 
-buildAci ${dir}/aci/aci-arch-nginx
-buildAci ${dir}/aci/aci-arch-git
-buildAci ${dir}/aci/aci-arch-go
-buildAci ${dir}/aci/aci-arch-dockyard
-#buildAci ${dir}/aci/aci-arch-seafile-server
+buildAci ${dir}/aci/archlinux/aci-arch-bftpd
+buildAci ${dir}/aci/archlinux/aci-arch-bind
+buildAci ${dir}/aci/archlinux/aci-arch-nginx
+buildAci ${dir}/aci/archlinux/aci-arch-git
+buildAci ${dir}/aci/archlinux/aci-arch-go
+buildAci ${dir}/aci/archlinux/aci-arch-ceph
+buildAci ${dir}/aci/archlinux/aci-arch-redis
+buildAci ${dir}/aci/archlinux/aci-arch-mariadb
+
+#buildAci ${dir}/aci/archlinux/aci-arch-dockyard
+#buildAci ${dir}/aci/archlinux/aci-arch-seafile-server
