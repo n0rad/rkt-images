@@ -1,0 +1,13 @@
+name: awired.net/aci-arch-nginx
+
+builder:
+  dependencies:
+    - awired.net/aci-arch-pacman
+
+aci:
+  app:
+    exec: [ "/usr/sbin/nginx","-g","daemon off;" ]
+    user: {{.user}}
+    group: {{.group}}
+  dependencies:
+    - awired.net/aci-base

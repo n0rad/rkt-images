@@ -1,0 +1,23 @@
+---
+name: awired.net/aci-dockyard
+
+builder:
+  dependencies:
+    - awired.net/aci-arch-yaourt
+    - awired.net/aci-arch-go
+    - awired.net/aci-arch-git
+    - awired.net/aci-arch-ceph
+
+aci:
+  app:
+    exec:
+      - /opt/bin/dockyard
+      - web
+      - --address="127.0.0.1"
+      - --port=9911
+    environment:
+      - { name: GODEBUG, value: "netdns=cgo" }
+  dependencies:
+    - awired.net/aci-base
+    - awired.net/aci-libc
+#    - awired.net/aci-arch-ceph

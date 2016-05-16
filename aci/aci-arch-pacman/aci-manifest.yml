@@ -1,0 +1,9 @@
+name: awired.net/aci-arch-pacman
+
+builder:
+  dependencies:
+    - awired.net/aci-arch-bootstrap
+
+aci:
+  dependencies:
+    - awired.net/aci-base

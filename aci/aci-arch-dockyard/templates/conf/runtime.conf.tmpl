@@ -1,0 +1,28 @@
+runmode = prod
+
+listenmode = http
+httpscertfile = cert/containerops/containerops.crt
+httpskeyfile = cert/containerops/containerops.key
+
+[log]
+filepath = /dev/console
+
+[db]
+driver = redis
+uri = 192.168.0.7:6379
+
+[dockyard]
+path = data
+domains = containerops.me
+registry = 0.9
+distribution = registry/2.0
+standalone = true
+backend = oss
+
+ossswitch = enable
+
+[oss]
+apiport= 80
+apihttpsport=443
+partsizemb = 4
+

@@ -1,0 +1,80 @@
+{{$data := .}}
+[client]
+port		= 3306
+socket		= /var/lib/mysql/mysqld.sock
+
+[mysqld_safe]
+socket		= /var/lib/mysql/mysqld.sock
+nice		= 0
+
+[mysqld]
+#
+# * Basic Settings
+#
+user		= mysql
+pid-file	= /var/lib/mysql/mysqld.pid
+socket		= /var/lib/mysql/mysqld.sock
+port		= 3306
+basedir		= /usr
+datadir		= /var/lib/mysql/data
+tmpdir		= /var/lib/mysql/tmp
+lc_messages_dir	= /usr/share/mysql
+lc_messages	= en_US
+default_storage_engine	= InnoDB
+skip-external-locking
+{{ if $data.my.mysqld.bind_address }}
+bind-address 	= {{ $data.my.mysqld.bind_address }}
+{{ end }}
+
+#
+# * Fine Tuning
+#
+max_connections		= {{ $data.my.mysqld.max_connections }}
+connect_timeout		= {{ $data.my.mysqld.connect_timeout }}
+wait_timeout		= {{ $data.my.mysqld.wait_timeout }}
+max_allowed_packet	= {{ $data.my.mysqld.max_allowed_packet }}
+thread_cache_size   = {{ $data.my.mysqld.thread_cache_size }}
+sort_buffer_size	= {{ $data.my.mysqld.sort_buffer_size }}
+bulk_insert_buffer_size	= {{ $data.my.mysqld.bulk_insert_buffer_size }}
+tmp_table_size		= {{ $data.my.mysqld.tmp_table_size }}
+max_heap_table_size	= {{ $data.my.mysqld.max_heap_table_size }}
+
+thread_stack		= 256K
+max_connect_errors	= 1000000
+#
+# * MyISAM
+#
+myisam_recover      = BACKUP
+key_buffer_size		= {{ $data.my.mysqld.key_buffer_size }}
+table_open_cache	= {{ $data.my.mysqld.table_open_cache }}
+myisam_sort_buffer_size	= {{ $data.my.mysqld.myisam_sort_buffer_size }}
+concurrent_insert	= {{ $data.my.mysqld.concurrent_insert }}
+read_buffer_size	= {{ $data.my.mysqld.read_buffer_size }}
+read_rnd_buffer_size	= {{ $data.my.mysqld.read_rnd_buffer_size }}
+
+#
+# * Query Cache Configuration
+#
+query_cache_size		= 0
+
+#
+# * Logging
+#
+log_warnings            = 2
+slow_query_log_file     = {{ $data.my.mysqld.slow_query_log_file }}
+long_query_time = {{ $data.my.mysqld.long_query_time }}
+log_slow_verbosity      = query_plan
+
+#
+# * Plugins Options
+#
+plugin-load = 
+
+[mysqldump]
+max_allowed_packet      = {{ $data.my.mysqldump.max_allowed_packet }}
+
+#
+# * IMPORTANT: Additional settings that can override those from this file!
+#   The files must end with '.cnf', otherwise they'll be ignored.
+#
+!includedir /etc/mysql/conf.d/

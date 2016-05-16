@@ -1,0 +1,5 @@
+name: awired.net/aci-arch-yaourt
+
+aci:
+  dependencies:
+    - awired.net/aci-arch-pacman

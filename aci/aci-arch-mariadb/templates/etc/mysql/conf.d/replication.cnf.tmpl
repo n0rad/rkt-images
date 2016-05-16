@@ -1,0 +1,21 @@
+{{$data := .}}
+[mysqld]
+server-id = {{ $data.replication.mysqld.server_id }}
+{{ if $data.replication.mysqld.log_bin }}
+log_bin = /var/log/mysql/mariadb-bin
+binlog_format = ROW
+log_bin_index = /var/log/mysql/mariadb-bin.index
+expire_logs_days = {{ $data.replication.mysqld.expire_logs_days }}
+max_binlog_size = 100M
+log_slave_updates = {{ $data.replication.mysqld.log_slave_updates }}
+{{ end }}
+
+# Replication Filters
+{{ if $data.replication.mysqld.replicate_wild_do_table }}
+{{ range $_, $value := $data.replication.mysqld.replicate_wild_do_table }}
+replicate_wild_do_table={{ $value }}
+{{ end }}
+{{ end }}
+{{ if $data.replication.mysqld.replicate_rewrite_db }}
+replicate-rewrite-db={{ $data.replication.mysqld.replicate_rewrite_db.from }}->{{ $data.replication.mysqld.replicate_rewrite_db.to }}
+{{ end }}

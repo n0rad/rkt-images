@@ -1,0 +1,8 @@
+---
+default:
+  replication:
+    mysqld:
+      log_bin: true
+      expire_logs_days: 10
+      gtid_domain_id: 1
+      log_slave_updates: 0

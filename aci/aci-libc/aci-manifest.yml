@@ -1,0 +1,4 @@
+name: awired.net/aci-libc
+aci:
+  app:
+    exec: [ /dgr/bin/busybox, sh]
