@@ -35,6 +35,7 @@ buildAci ${dir}/aci/archlinux/aci-arch-minimal
 
 buildAci ${dir}/aci/archlinux/aci-arch-bftpd
 buildAci ${dir}/aci/archlinux/aci-arch-bind
+buildAci ${dir}/aci/archlinux/aci-arch-dhcp
 buildAci ${dir}/aci/archlinux/aci-arch-nginx
 buildAci ${dir}/aci/archlinux/aci-arch-git
 buildAci ${dir}/aci/archlinux/aci-arch-go

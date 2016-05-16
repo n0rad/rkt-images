@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-bind
+name: awired.net/aci-arch-dhcp
 
 builder:
   dependencies:
@@ -9,6 +9,6 @@ aci:
     - awired.net/aci-base
     - awired.net/aci-arch-minimal
   app:
-    exec: [/usr/sbin/named, -g, '-4', -c, /etc/named.conf, -u, named]
+    exec: [dhcpd, -f]
     mountPoints:
-      - {name: data, path: /var/bind, readOnly: false}
+      - {name: data, path: /var/lib/dhcp, readOnly: false}
