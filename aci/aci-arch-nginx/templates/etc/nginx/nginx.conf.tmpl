@@ -1,5 +1,5 @@
 {{- $data := . -}}
-user www-data;
+user http;
 worker_processes {{ orDef $data.nginx.worker_processes $data.os.cpu_number }};
 worker_rlimit_nofile {{ orDef $data.nginx.worker_rlimit_nofile $data.os.cpu_processes }};
 

@@ -7,7 +7,3 @@ isLevelEnabled "debug" && set -x
 pacman -S coreutils --noconfirm
 
 pacman -S nginx --noconfirm
-
-
-mkdir -p /etc/nginx/conf.d
-chmod 777 /etc/nginx/conf.d
