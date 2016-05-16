@@ -2,7 +2,7 @@ name: awired.net/aci-arch-go
 
 builder:
   dependencies:
-    - awired.net/aci-arch-pacman
+    - awired.net/aci-arch-pacman-auto
 
 aci:
   dependencies:

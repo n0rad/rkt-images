@@ -4,6 +4,6 @@ set -e
 isLevelEnabled "debug" && set -x
 
 # required to finish postinstall bind stuff
-pacman -S systemd --noconfirm
+#pacman -S systemd --noconfirm
 
 pacman -S  bind --noconfirm

@@ -3,4 +3,5 @@ set -e
 . /dgr/bin/functions.sh
 isLevelEnabled "debug" && set -x
 
+rm -Rf ${ROOTFS}/var/cache/pacman/
 rm -Rf ${ROOTFS}/var/lib/pacman/sync/*

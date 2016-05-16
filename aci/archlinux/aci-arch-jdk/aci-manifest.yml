@@ -1,8 +1,8 @@
-name: awired.net/aci-arch-git
+name: awired.net/aci-arch-jdk
 
 builder:
   dependencies:
-    - awired.net/aci-arch-pacman-auto
+    - awired.net/aci-arch-yaourt-auto
 
 aci:
   dependencies:
