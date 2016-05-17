@@ -15,6 +15,9 @@ aci:
     mountPoints:
       - name: "config"
         path: "/config"
+      - name: "downloads"
+        path: "/downloads"
   dependencies:
     - awired.net/aci-base
     - awired.net/aci-arch-minimal
+
