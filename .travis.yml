@@ -6,4 +6,4 @@ install:
   - sudo ./.travis-install-dgr.sh
 
 script:
-  - ./build-all.sh
+  - sudo ./build-all.sh
