@@ -1,0 +1,9 @@
+name: awired.net/aci-arch-gcc
+
+builder:
+  dependencies:
+    - awired.net/aci-arch-pacman
+
+aci:
+  dependencies:
+    - awired.net/aci-base

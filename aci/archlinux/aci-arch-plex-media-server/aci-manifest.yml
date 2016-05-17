@@ -1,0 +1,17 @@
+name: awired.net/aci-arch-plex-media-server
+
+builder:
+  dependencies:
+    - awired.net/aci-arch-yaourt
+
+aci:
+  dependencies:
+    - awired.net/aci-base
+    - awired.net/aci-arch-minimal
+  app:
+    user: {{.user}}
+    group: {{.group}}
+    exec: [ "/bin/bash", "-c", "rm -f '/var/lib/plex/Library/Application Support/Plex Media Server/plexmediaserver.pid' && /opt/plexmediaserver/start.sh" ]
+    mountPoints:
+      - {name: db, path: /var/lib/plex, readOnly: false}
+      - {name: data, path: /data, readOnly: false}

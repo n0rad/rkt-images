@@ -1,0 +1,29 @@
+[global]
+deadtime = 60
+disable netbios = yes
+dns proxy = no
+hosts allow = 192.168.40. 127.
+invalid users = root
+security = user
+map to guest = Bad User
+max connections = 100
+workgroup = WORKGROUP
+
+inherit owner = yes
+create mask = 0664
+directory mask = 0775
+force create mode = 0664
+force directory mode = 0775
+
+[private]
+comment = My Private Share
+path = /data
+read only = no
+valid users = smbuser
+
+; Public Share
+;[public]
+; comment = My Public Share
+; path = /path/to/public
+; read only = yes
+; guest ok = yes; No password required to connect to the service
