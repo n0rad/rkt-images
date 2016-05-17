@@ -3,4 +3,4 @@ set -e
 . /dgr/bin/functions.sh
 isLevelEnabled "debug" && set -x
 
-pacman -Syu filesystem glibc coreutils grep less vi sed awk --noconfirm
+pacman -S filesystem glibc coreutils grep less vi sed awk --noconfirm

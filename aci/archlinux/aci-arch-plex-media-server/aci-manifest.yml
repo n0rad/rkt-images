@@ -11,7 +11,8 @@ aci:
   app:
     user: {{.user}}
     group: {{.group}}
-    exec: [ "/bin/bash", "-c", "rm -f '/var/lib/plex/Library/Application Support/Plex Media Server/plexmediaserver.pid' && /opt/plexmediaserver/start.sh" ]
+    exec: [ "/bin/bash", "-c", "rm -f '/var/lib/plex/Library/Application Support/Plex Media Server/plexmediaserver.pid' && ./start.sh" ]
+    workingDirectory: /opt/plexmediaserver
     mountPoints:
       - {name: db, path: /var/lib/plex, readOnly: false}
       - {name: data, path: /data, readOnly: false}
