@@ -1,0 +1,20 @@
+name: awired.net/aci-arch-deluge
+
+builder:
+  dependencies:
+    - awired.net/aci-arch-yaourt-auto
+
+aci:
+  app:
+    exec:
+      - /usr/sbin/deluged
+      - --loglevel=info
+      - -d
+      - -c /config
+
+    mountPoints:
+      - name: "config"
+        path: "/config"
+  dependencies:
+    - awired.net/aci-base
+    - awired.net/aci-arch-minimal

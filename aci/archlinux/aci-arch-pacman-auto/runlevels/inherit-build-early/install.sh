@@ -5,4 +5,4 @@ isLevelEnabled "debug" && set -x
 
 package_name=${ACI_NAME#aci-arch-*}
 
-pacman -S ${package_name} --noconfirm
+pacman -Sy ${package_name} --noconfirm
