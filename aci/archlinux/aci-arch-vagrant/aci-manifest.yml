@@ -2,8 +2,8 @@ name: awired.net/aci-arch-vagrant:{{.version}}
 
 builder:
   dependencies:
-    - awired.net/aci-arch-git
-    - awired.net/aci-arch-yaourt
+    - dgrtool.com/aci-arch-git
+    - dgrtool.com/aci-arch-yaourt
 aci:
   dependencies:
-    - awired.net/aci-base
+    - dgrtool.com/aci-base
