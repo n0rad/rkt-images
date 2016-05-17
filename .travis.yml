@@ -1,0 +1,9 @@
+sudo: required
+dist: trusty
+
+install:
+  - sudo ./.travis-install-rkt.sh
+  - sudo ./.travis-install-dgr.sh
+
+script:
+  - ./build-all.sh
