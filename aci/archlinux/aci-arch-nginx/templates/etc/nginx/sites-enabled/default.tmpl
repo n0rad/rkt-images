@@ -1,13 +1,13 @@
 {{$data := .}}
 {{ if eq $data.sites.default true }}
 server {
-  listen {{ $data.pod.ip }}:80;
+  listen 80;
   server_name {{ if $data.sites.server_name }} {{ $data.sites.server_name }} {{ else }} {{ $data.pod.ip }} localhost {{end}};
   root {{if $data.sites.document_root}}{{$data.sites.document_root}}{{else}}/data{{end}};
 
   {{ if not (eq $data.sites.php_default "false") }}
   location / {
-    root {{if $data.sites.document_root}}{{$data.sites.document_root}}{{else}}/data{{end}};
+    root {{if $data.sites.document_root}}{{$data.sites.document_root}}{{else}}/srv/http{{end}};
   }
   location ~ \.php$ {
     fastcgi_pass   127.0.0.1:9000;

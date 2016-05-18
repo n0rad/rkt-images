@@ -1,8 +1,0 @@
-{{- if .nginx.prometheus.enabled  -}}
-server {
-  listen {{ .pod.ip }}:{{ .nginx.prometheus.port }};
-  location /metrics {
-    content_by_lua 'prometheus:collect()';
-  }
-}
-{{- end -}}

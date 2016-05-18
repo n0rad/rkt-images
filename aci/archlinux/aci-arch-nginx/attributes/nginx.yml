@@ -5,7 +5,6 @@ default:
         # proxy:
         #   location: "/proxypass"
         #   endpoint_url: "http://127.0.0.1:8080"
-        document_root: "/data"
         php_default: "true"
         server_name: "nginx 127.0.0.1"
     nginx:

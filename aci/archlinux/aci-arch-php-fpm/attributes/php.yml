@@ -1,0 +1,3 @@
+default:
+  php:
+    listen: /run/php-fpm/php-fpm.sock
