@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-samba
+name: awired.net/aci-arch-samba:{{.version}}
 
 builder:
   dependencies:

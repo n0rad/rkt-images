@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-nginx
+name: awired.net/aci-arch-nginx:{{.version}}
 
 builder:
   dependencies:

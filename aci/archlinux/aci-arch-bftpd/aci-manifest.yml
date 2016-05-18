@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-bftpd
+name: awired.net/aci-arch-bftpd:{{.version}}
 
 builder:
   dependencies:

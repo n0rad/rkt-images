@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-mariadb
+name: awired.net/aci-arch-mariadb:{{.version}}
 
 builder:
   dependencies:

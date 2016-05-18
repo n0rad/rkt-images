@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-iptables:{{.version}}
+name: awired.net/aci-arch-apcupsd:{{.version}}
 
 builder:
   dependencies:

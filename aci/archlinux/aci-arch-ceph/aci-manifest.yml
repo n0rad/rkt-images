@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-ceph
+name: awired.net/aci-arch-ceph:{{.version}}
 
 builder:
   dependencies:

@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-openssh
+name: awired.net/aci-arch-openssh:{{.version}}
 
 builder:
   dependencies:

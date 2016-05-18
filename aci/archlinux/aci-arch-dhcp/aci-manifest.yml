@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-dhcp
+name: awired.net/aci-arch-dhcp:{{.version}}
 
 builder:
   dependencies:

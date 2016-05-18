@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-tmux
+name: awired.net/aci-arch-tmux:{{.version}}
 
 builder:
   dependencies:

@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-jdk
+name: awired.net/aci-arch-jdk:{{.version}}
 
 builder:
   dependencies:

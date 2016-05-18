@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-vagrant
+name: awired.net/aci-arch-vagrant:{{.version}}
 
 builder:
   dependencies:

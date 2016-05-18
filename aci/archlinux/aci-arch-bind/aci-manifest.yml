@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-bind
+name: awired.net/aci-arch-bind:{{.version}}
 
 builder:
   dependencies:

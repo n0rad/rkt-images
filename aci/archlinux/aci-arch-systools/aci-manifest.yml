@@ -1,0 +1,13 @@
+name: awired.net/aci-arch-systools
+
+builder:
+  dependencies:
+    - awired.net/aci-arch-yaourt
+
+aci:
+  dependencies:
+    - awired.net/aci-base
+    - awired.net/aci-arch-git
+    - awired.net/aci-arch-iptables
+  app:
+    exec: [ /bin/bash ]
