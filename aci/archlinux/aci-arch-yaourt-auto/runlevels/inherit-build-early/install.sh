@@ -4,4 +4,4 @@ set -e
 isLevelEnabled "debug" && set -x
 
 package_name=${ACI_NAME#aci-arch-*}
-su -c "yaourt -S ${package_name} --noconfirm" yaourt
+su -c "yaourt -S  ${package_name} --noconfirm" yaourt

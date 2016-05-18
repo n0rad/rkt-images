@@ -2,7 +2,7 @@ name: awired.net/aci-arch-ceph:{{.version}}
 
 builder:
   dependencies:
-    - awired.net/aci-arch-pacman-auto
+    - awired.net/aci-arch-yaourt-auto
 
 aci:
   dependencies:
