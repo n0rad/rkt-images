@@ -17,7 +17,7 @@ fi
 buildAci() {
     echo -e "\n\n\e[0;30;42mBuilding aci : ${1}\e[0m\n\n"
     sleep 1
-    dgr -W ${1} -L debug clean install
+    dgr -W ${1} clean install
 }
 
 
