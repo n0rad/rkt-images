@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-yaourt
+name: awired.net/aci-arch-yaourt:{{.version}}
 
 aci:
   dependencies:

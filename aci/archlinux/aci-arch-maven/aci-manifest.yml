@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-maven
+name: awired.net/aci-arch-maven:{{.version}}
 
 builder:
   dependencies:

@@ -2,4 +2,4 @@ name: awired.net/aci-arch-pacman-auto
 
 aci:
   dependencies:
-    - awired.net/aci-arch-bootstrap
+    - awired.net/aci-arch-pacman

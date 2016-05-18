@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-gcc
+name: awired.net/aci-arch-gcc:{{.version}}
 
 builder:
   dependencies:

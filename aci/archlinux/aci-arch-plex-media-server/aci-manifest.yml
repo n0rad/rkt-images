@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-plex-media-server
+name: awired.net/aci-arch-plex-media-server:{{.version}}
 
 builder:
   dependencies:

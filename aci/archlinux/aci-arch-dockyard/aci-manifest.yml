@@ -1,5 +1,4 @@
----
-name: awired.net/aci-dockyard
+name: awired.net/aci-dockyard:{{.version}}
 
 builder:
   dependencies:

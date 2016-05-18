@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-redis
+name: awired.net/aci-arch-redis:{{.version}}
 
 builder:
   dependencies:

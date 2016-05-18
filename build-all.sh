@@ -39,11 +39,13 @@ buildAci ${dir}/aci/archlinux/aci-arch-dhcp
 buildAci ${dir}/aci/archlinux/aci-arch-nginx
 buildAci ${dir}/aci/archlinux/aci-arch-git
 buildAci ${dir}/aci/archlinux/aci-arch-go
-buildAci ${dir}/aci/archlinux/aci-arch-ceph
-buildAci ${dir}/aci/archlinux/aci-arch-redis
-buildAci ${dir}/aci/archlinux/aci-arch-mariadb
-buildAci ${dir}/aci/archlinux/aci-arch-jdk
-buildAci ${dir}/aci/archlinux/aci-arch-jre
+#buildAci ${dir}/aci/archlinux/aci-arch-ceph
+#buildAci ${dir}/aci/archlinux/aci-arch-redis
+#buildAci ${dir}/aci/archlinux/aci-arch-jdk
+#buildAci ${dir}/aci/archlinux/aci-arch-jre
+#buildAci ${dir}/aci/archlinux/aci-arch-mariadb
 
 #buildAci ${dir}/aci/archlinux/aci-arch-dockyard
 #buildAci ${dir}/aci/archlinux/aci-arch-seafile-server
+
+echo -e "\n\033[0;32mEverything looks good !\033[0m\n"

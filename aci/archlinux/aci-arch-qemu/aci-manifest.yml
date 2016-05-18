@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-qemu
+name: awired.net/aci-arch-qemu:{{.version}}
 
 builder:
   dependencies:

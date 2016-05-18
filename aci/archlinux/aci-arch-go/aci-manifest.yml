@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-go
+name: awired.net/aci-arch-go:{{.version}}
 
 builder:
   dependencies:

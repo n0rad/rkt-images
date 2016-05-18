@@ -1,4 +1,4 @@
-name: awired.net/aci-arch-git
+name: awired.net/aci-arch-git:{{.version}}
 
 builder:
   dependencies:
