@@ -1,4 +1,4 @@
-runmode = prod
+runmode = dev
 
 listenmode = http
 httpscertfile = cert/containerops/containerops.crt
@@ -10,10 +10,11 @@ filepath = /dev/console
 [db]
 driver = redis
 uri = 192.168.0.7:6379
+db = 0
 
 [dockyard]
-path = data
-domains = containerops.me
+path = /data
+domains = 0.0.0.0
 registry = 0.9
 distribution = registry/2.0
 standalone = true

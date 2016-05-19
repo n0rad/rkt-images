@@ -6,7 +6,6 @@ builder:
     - awired.net/aci-arch-go
     - awired.net/aci-arch-git
     - awired.net/aci-arch-ceph
-
 aci:
   app:
     exec:

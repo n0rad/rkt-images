@@ -1,0 +1,9 @@
+[mon.]
+	key = AQA+ET5XE9rbJBAAQ25avWr6Q3zp6xNkR6lGDw==
+	caps mon = "allow *"
+[client.admin]
+	key = AQCiET5X5eowGBAAlW5aZCkSIz9LfsgsEzeURA==
+	auid = 0
+	caps mds = "allow"
+	caps mon = "allow *"
+	caps osd = "allow *"
