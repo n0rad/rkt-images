@@ -1,0 +1,21 @@
+name: awired.net/aci-arch-ntp:{{.version}}
+
+builder:
+  dependencies:
+    - awired.net/aci-arch-pacman-auto
+
+aci:
+  dependencies:
+    - awired.net/aci-base
+    - awired.net/aci-arch-minimal
+  app:
+    exec: [/usr/bin/ntpd, -d, -g, -u, 'ntp:ntp']
+    isolators:
+      - name: os/linux/capabilities-retain-set
+        value:
+          set:
+            - CAP_SYS_TIME
+            - CAP_IPC_LOCK
+            - CAP_NET_BIND_SERVICE
+            - CAP_SETGID
+            - CAP_SETUID
