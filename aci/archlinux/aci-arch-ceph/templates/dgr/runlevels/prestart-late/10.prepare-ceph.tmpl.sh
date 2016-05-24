@@ -1,5 +1,16 @@
 #!/dgr/bin/busybox sh
-mkdir -p /var/lib/ceph/mon/combien_pese_un_hister-node1
+{{if (eq .ceph.node.type "monitor" ) }}
+mkdir -p /var/lib/ceph/mon/{{.ceph.cluster.name}}-node1
 chown ceph: -R /var/lib/ceph/mon
-monmaptool --create --add node1 {{.pod.ip}} --fsid aa3b3a75-0e46-4821-bde6-0c97ae5b9589 /tmp/monmap
-su -m ceph -c 'ceph-mon --cluster combien_pese_un_hister --mkfs -i node1 --monmap /tmp/monmap --keyring /tmp/combien_pese_un_hister.mon.keyring'
+monmaptool --create --add node1 {{.pod.ip}} --fsid {{.ceph.fsid}} /tmp/monmap
+su -m ceph -c 'ceph-mon --cluster {{.ceph.cluster.name}} --mkfs -i node1 --monmap /tmp/monmap --keyring /tmp/{{.ceph.cluster.name}}.mon.keyring'
+{{else if  ( eq .ceph.node.type "osd" )}}
+ceph osd create {{.ceph.fsid}}
+mkdir -p /var/lib/ceph/osd/{{.ceph.cluster.name}}-{{.ceph.node.osd_number}}
+ceph-osd -i {{.ceph.node.osd_number}} --mkfs --mkkey --cluster {{.ceph.cluster.name}}
+ceph auth add osd.{{.ceph.node.osd_number}} osd 'allow *' mon 'allow rwx' -i /var/lib/ceph/osd/{{.ceph.cluster.name}}-{{.ceph.node.osd_number}}/keyring
+chown ceph: -R /var/lib/ceph/osd
+ceph osd crush add-bucket {{.ceph.node.name}} host
+ceph osd crush move node1 root=default
+{{else if  ( eq .ceph.node.type "mds" )}}
+{{- end -}}
