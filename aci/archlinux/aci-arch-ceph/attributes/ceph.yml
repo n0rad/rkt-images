@@ -1,12 +1,12 @@
 ---
 default:
   ceph:
-    # node:
-    #   type: "monitor"
-    node:
-      type: "osd"
-      osd_number: 1
-      name: osd1
+     node:
+       type: "monitor"
+    #node:
+     # type: "osd"
+     # osd_number: 1
+     # name: osd1
     fsid: "aa3b3a75-0e46-4821-bde6-0c97ae5b9589"
     cluster:
       name: "combien_pese_un_hister"

@@ -1,0 +1,3 @@
+#!/dgr/bin/busybox sh
+
+/etc/prometheus/exporter/haproxy_exporter -haproxy.scrape-uri='http://admin:admin@{{.pod.ip}}:1936/;csv'

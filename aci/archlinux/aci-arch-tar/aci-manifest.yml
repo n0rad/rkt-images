@@ -1,0 +1,10 @@
+name: awired.net/aci-arch-tar:{{.version}}
+
+builder:
+  dependencies:
+    - awired.net/aci-arch-yaourt-auto
+
+aci:
+  dependencies:
+    - awired.net/aci-base
+    - awired.net/aci-arch-minimal

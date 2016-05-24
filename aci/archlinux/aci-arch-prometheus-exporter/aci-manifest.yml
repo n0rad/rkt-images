@@ -1,0 +1,20 @@
+---
+name: awired.net/aci-prometheus-exporter:1
+
+builder:
+  dependencies:
+    - awired.net/aci-arch-go
+    - awired.net/aci-arch-curl
+    - awired.net/aci-arch-git
+    - awired.net/aci-arch-tar
+
+aci:
+  app:
+    exec:
+      - /etc/prometheus/exporter/node_exporter
+    environment:
+      - { name: GODEBUG, value: "netdns=cgo" }
+  dependencies:
+    - awired.net/aci-libc
+    - awired.net/aci-base
+
