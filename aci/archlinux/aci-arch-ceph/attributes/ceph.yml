@@ -1,12 +1,23 @@
 ---
 default:
   ceph:
-     node:
-       type: "monitor"
-    #node:
-     # type: "osd"
-     # osd_number: 1
-     # name: osd1
+    monitor:
+        clock_drift_allowed: "0.15"
+    monitors:
+      - name: mon1
+        ip: '{{.pod.ip}}'
+      - name: mon2
+        ip: 192.168.0.6
+    node:
+     type: "monitor"
+     mon_number: 0
+    # node:
+    #   type: "osd"
+    #   osd_number: 0
+    #   name: osd0
+    # node:
+    #   type: "mds"
+    #   mds_number: 1
     fsid: "aa3b3a75-0e46-4821-bde6-0c97ae5b9589"
     cluster:
       name: "combien_pese_un_hister"

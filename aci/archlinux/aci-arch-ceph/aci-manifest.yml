@@ -8,11 +8,29 @@ aci:
   dependencies:
     - awired.net/aci-base
     - awired.net/aci-arch-minimal
+    - awired.net/aci-arch-strace
   app:
+    environment:
+       - name: CEPH_ID
+         value: "1"
+       - name: CEPH_NAME
+         value: "mon"
     exec:
-      - /usr/bin/ceph-mon
-      - -f
-      - --cluster=combien_pese_un_hister
-      - --id=node1
-      #- --setuser=ceph
-      #- --setgroup=ceph
+       - /usr/bin/ceph-mon
+       - --cluster=combien_pese_un_hister
+       - -d
+       - -i="$CEPH_ID"
+       - -n="$CEPH_NAME"
+       - --setuser ceph
+       - --setgroup ceph
+
+      # - /usr/bin/ceph-osd
+      # - -f
+      # - --cluster=combien_pese_un_hister
+      # - --id=0
+      # - /usr/bin/ceph-mds
+      # - --cluster=combien_pese_un_hister
+      # - -d
+      # - -i $CEPH_ID
+      # - --setuser ceph
+      # - --setgroup ceph
