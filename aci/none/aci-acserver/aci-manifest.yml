@@ -1,0 +1,9 @@
+name: aci.awired.net/aci-acserver:0.2-blablacar-1
+aci:
+  dependencies:
+    - aci.awired.net/aci-common
+    - aci.awired.net/aci-glibc
+  app:
+    exec: [ /run.sh ]
+    mountPoints:
+      - {name: data, path: /data, readOnly: false}

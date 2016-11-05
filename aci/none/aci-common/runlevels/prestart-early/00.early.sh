@@ -1,6 +1,6 @@
 #!/dgr/bin/busybox sh
 set -e
-source /dgr/bin/functions.sh
+. /dgr/bin/functions.sh
 isLevelEnabled "debug" && set -x
 
 DGR_PATH=/dgr

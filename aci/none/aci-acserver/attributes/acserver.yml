@@ -1,0 +1,6 @@
+default:
+  acserver:
+    username: admin
+    password: 2PetitsChatsBlanc
+    insecure: true
+    port: 80
