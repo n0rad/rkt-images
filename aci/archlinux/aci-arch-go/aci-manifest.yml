@@ -1,10 +1,10 @@
-name: awired.net/aci-arch-go:{{.version}}
+name: aci.awired.net/aci-arch-go:{{.version}}
 
 builder:
   dependencies:
-    - awired.net/aci-arch-pacman-auto
+    - aci.awired.net/aci-arch-pacman-auto
 
 aci:
   dependencies:
-    - awired.net/aci-base
-    - awired.net/aci-arch-minimal
+    - aci.awired.net/aci-base
+    - aci.awired.net/aci-arch-minimal

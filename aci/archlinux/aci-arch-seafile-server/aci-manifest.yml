@@ -1,13 +1,13 @@
-name: awired.net/aci-arch-seafile-server:{{.version}}
+name: aci.awired.net/aci-arch-seafile-server:{{.version}}
 
 builder:
   dependencies:
-    - awired.net/aci-arch-yaourt-auto
+    - aci.awired.net/aci-arch-yaourt-auto
 
 aci:
   dependencies:
-    - awired.net/aci-base
-    - awired.net/aci-arch-minimal
+    - aci.awired.net/aci-base
+    - aci.awired.net/aci-arch-minimal
   app:
 #    exec: [ /start.sh ]
 #    mountPoints:

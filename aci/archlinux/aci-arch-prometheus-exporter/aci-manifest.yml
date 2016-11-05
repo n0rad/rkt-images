@@ -1,12 +1,12 @@
 ---
-name: awired.net/aci-prometheus-exporter:1
+name: aci.awired.net/aci-prometheus-exporter:1
 
 builder:
   dependencies:
-    - awired.net/aci-arch-go
-    - awired.net/aci-arch-curl
-    - awired.net/aci-arch-git
-    - awired.net/aci-arch-tar
+    - aci.awired.net/aci-arch-go
+    - aci.awired.net/aci-arch-curl
+    - aci.awired.net/aci-arch-git
+    - aci.awired.net/aci-arch-tar
 
 aci:
   app:
@@ -15,6 +15,6 @@ aci:
     environment:
       - { name: GODEBUG, value: "netdns=cgo" }
   dependencies:
-    - awired.net/aci-libc
-    - awired.net/aci-base
+    - aci.awired.net/aci-libc
+    - aci.awired.net/aci-base
 

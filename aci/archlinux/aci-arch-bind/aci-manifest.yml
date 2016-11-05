@@ -1,13 +1,13 @@
-name: awired.net/aci-arch-bind:{{.version}}
+name: aci.awired.net/aci-arch-bind:{{.version}}
 
 builder:
   dependencies:
-    - awired.net/aci-arch-pacman-auto
+    - aci.awired.net/aci-arch-pacman-auto
 
 aci:
   dependencies:
-    - awired.net/aci-base
-    - awired.net/aci-arch-minimal
+    - aci.awired.net/aci-base
+    - aci.awired.net/aci-arch-minimal
   app:
     exec: [/usr/sbin/named, -g, '-4', -c, /etc/named.conf, -u, named]
     mountPoints:

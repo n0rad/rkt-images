@@ -1,6 +1,6 @@
-name: awired.net/aci-arch-prometheus-jmx-exporter:0.5-4
+name: aci.awired.net/aci-arch-prometheus-jmx-exporter:0.5-4
 aci:
   app:
     exec: ["java", "-jar", "/jmx_prometheus_httpserver.jar", "9090", "/etc/prometheus/config.yml"]
   dependencies:
-    - awired.net/aci-arch-jdk
+    - aci.awired.net/aci-arch-jdk

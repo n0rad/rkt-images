@@ -1,11 +1,11 @@
-name: awired.net/aci-dockyard:{{.version}}
+name: aci.awired.net/aci-dockyard:{{.version}}
 
 builder:
   dependencies:
-    - awired.net/aci-arch-yaourt
-    - awired.net/aci-arch-go
-    - awired.net/aci-arch-git
-    - awired.net/aci-arch-ceph
+    - aci.awired.net/aci-arch-yaourt
+    - aci.awired.net/aci-arch-go
+    - aci.awired.net/aci-arch-git
+    - aci.awired.net/aci-arch-ceph
 aci:
   app:
     exec:
@@ -16,6 +16,6 @@ aci:
     environment:
       - { name: GODEBUG, value: "netdns=cgo" }
   dependencies:
-    - awired.net/aci-base
-    - awired.net/aci-arch-minimal
-    - awired.net/aci-arch-ceph
+    - aci.awired.net/aci-base
+    - aci.awired.net/aci-arch-minimal
+    - aci.awired.net/aci-arch-ceph

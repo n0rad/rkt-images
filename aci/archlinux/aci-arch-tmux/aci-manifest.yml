@@ -1,9 +1,9 @@
-name: awired.net/aci-arch-tmux:{{.version}}
+name: aci.awired.net/aci-arch-tmux:{{.version}}
 
 builder:
   dependencies:
-    - awired.net/aci-arch-git
-    - awired.net/aci-arch-yaourt
+    - aci.awired.net/aci-arch-git
+    - aci.awired.net/aci-arch-yaourt
 aci:
   dependencies:
-    - awired.net/aci-base
+    - aci.awired.net/aci-base

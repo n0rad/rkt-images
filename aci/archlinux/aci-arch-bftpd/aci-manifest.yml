@@ -1,13 +1,13 @@
-name: awired.net/aci-arch-bftpd:{{.version}}
+name: aci.awired.net/aci-arch-bftpd:{{.version}}
 
 builder:
   dependencies:
-    - awired.net/aci-arch-pacman-auto
+    - aci.awired.net/aci-arch-pacman-auto
 
 aci:
   dependencies:
-    - awired.net/aci-base
-    - awired.net/aci-arch-minimal
+    - aci.awired.net/aci-base
+    - aci.awired.net/aci-arch-minimal
   app:
     exec: [bftpd, -D, -c, /etc/bftpd/bftpd.conf]
     mountPoints:

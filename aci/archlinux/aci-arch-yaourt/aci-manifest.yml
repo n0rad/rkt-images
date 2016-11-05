@@ -1,5 +1,5 @@
-name: awired.net/aci-arch-yaourt:{{.version}}
+name: aci.awired.net/aci-arch-yaourt:{{.version}}
 
 aci:
   dependencies:
-    - awired.net/aci-arch-pacman
+    - aci.awired.net/aci-arch-pacman

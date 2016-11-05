@@ -1,14 +1,14 @@
-name: awired.net/aci-arch-ceph:{{.version}}
+name: aci.awired.net/aci-arch-ceph:{{.version}}
 
 builder:
   dependencies:
-    - awired.net/aci-arch-yaourt-auto
+    - aci.awired.net/aci-arch-yaourt-auto
 
 aci:
   dependencies:
-    - awired.net/aci-base
-    - awired.net/aci-arch-minimal
-    - awired.net/aci-arch-strace
+    - aci.awired.net/aci-base
+    - aci.awired.net/aci-arch-minimal
+    - aci.awired.net/aci-arch-strace
   app:
     environment:
        - name: CEPH_ID

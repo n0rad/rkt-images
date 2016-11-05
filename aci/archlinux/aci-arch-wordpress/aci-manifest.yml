@@ -1,9 +1,9 @@
-name: awired.net/aci-arch-wordpress:{{.version}}
+name: aci.awired.net/aci-arch-wordpress:{{.version}}
 
 builder:
   dependencies:
-    - awired.net/aci-arch-pacman-auto
+    - aci.awired.net/aci-arch-pacman-auto
 
 aci:
   dependencies:
-    - awired.net/aci-arch-php-fpm
+    - aci.awired.net/aci-arch-php-fpm
