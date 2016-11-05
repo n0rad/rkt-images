@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -x
+set -e
+
+dir=$( dirname $0 )
+fversion="2.2.1"
+fdir="etcd-v${fversion}-linux-amd64"
+fname="${fdir}.tar.gz"
+
+export PATH=${PATH}:${dir}
+
+if [ -f "$dir/.last_etcd" ]; then
+    last_etcd=`cat $dir/.last_etcd`
+fi
+
+url="https://github.com/coreos/etcd/releases/download/v${fversion}/${fname}"
+
+set +e
+etcdbin=$(which etcd)
+if [ $? -gt 0 ]; then
+  cversion="0"
+else
+  cversion=$("${etcdbin}" -version | cut -d' ' -f3 | head -1)
+fi
+set -e
+
+if [ "$cversion" != "$fversion" ]; then
+	wget --no-check-certificate -O ${dir}/${fname} $url
+	tar xvzf ${dir}/${fname} --strip=1 -C ${dir}/ ${fdir}/etcd
+	rm ${dir}/${fname}
+    echo $fversion > $dir/.last_etcd
+fi

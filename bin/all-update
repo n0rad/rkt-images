@@ -1,0 +1,13 @@
+#!/bin/bash
+set -x
+set -e
+
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+${dir}/etcd-update
+${dir}/fleet-update
+${dir}/ggn-update
+${dir}/rkt-update
+if [[  "$OSTYPE" =~ ^linux ]]; then
+  ${dir}/dgr-update
+fi

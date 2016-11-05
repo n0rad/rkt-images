@@ -1,0 +1,41 @@
+#!/bin/bash
+
+dir=$( dirname $0 )
+fversion="0.11.7"
+
+if [[ "$OSTYPE" =~ ^linux ]]; then
+    platform="linux-amd64"
+    ext="tar.gz"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    platform="darwin-amd64"
+    ext="zip"
+else
+    echo "Unknown platform"
+    exit 1
+fi
+
+fname="fleet-v${fversion}-${platform}.${ext}"
+
+export PATH=${PATH}:${dir}
+
+if [ -f "$dir/.last_fleet" ]; then
+    last_fleet=`cat $dir/.last_fleet`
+fi
+
+url="https://github.com/coreos/fleet/releases/download/v${fversion}/fleet-v${fversion}-${platform}.${ext}"
+
+set +e
+fleectlbin=$(which fleetctl)
+if [ $? -gt 0 ]; then
+  cversion="0"
+else
+  cversion=$("${fleectlbin}" version | cut -d' ' -f3)
+fi
+set -e
+
+if [ "$cversion" != "$fversion" ]; then
+    wget --no-check-certificate -O ${dir}/${fname} $url
+    tar xvzf ${dir}/${fname} --strip=1  -C ${dir}
+    rm ${dir}/${fname}
+    echo $fversion > $dir/.last_fleet
+fi

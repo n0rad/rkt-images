@@ -1,0 +1,21 @@
+#!/bin/bash
+#set -x
+set -e
+dir=$( dirname $0 )
+
+url_data=$(curl -s https://api.github.com/repos/coreos/rkt/releases)
+url=$(curl -s https://api.github.com/repos/coreos/rkt/releases | grep browser_download_url | grep 'tar.gz"' | head -n1 | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | cut -f2 -d' ' | tr -d '"')
+version=$(echo $url_data | jq -r -c '.[0].tag_name')
+
+if [ -f "$dir/.last_rkt" ]; then
+    last_rkt=`cat $dir/.last_rkt`
+fi
+
+if [ "$version" != "$last_rkt" ]; then
+	wget -O ${dir}/rkt.tar.gz $url
+	tar xvzf ${dir}/rkt.tar.gz -C ${dir}
+	cp -f ${dir}/rkt*/{rkt,stage1*.aci} ${dir}/. || true
+	rm -Rf ${dir}/rkt*/
+	rm ${dir}/rkt.tar.gz
+	echo $version > $dir/.last_rkt
+fi
