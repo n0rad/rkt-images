@@ -9,15 +9,17 @@ fi
 
 buildHome=$( dirname $0 )/..
 
-for aci in $buildHome/aci/*; do
-    cd $aci
-    pwd
-    ../../bin/dgr clean
-    cd -
+for aci in $buildHome/aci/none/*; do
+    echo ${aci}
+    dgr -W ${aci} clean
+done
+
+for aci in $buildHome/aci/archlinux/*; do
+    echo ${aci}
+    dgr -W ${aci} clean
 done
 
 for pod in $buildHome/pod/*; do
-    cd $pod
-    ../../bin/dgr clean
-    cd -
+    echo ${pod}
+    dgr -W ${pod} clean
 done
