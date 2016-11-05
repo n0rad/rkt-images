@@ -1,0 +1,3 @@
+{{- define "rkt-post-stop" -}}
+ExecStopPost=-/bin/bash -c '{{.rtkPath}} status $(cat /run/rkt-uuid/{{.env}}/{{.hostname}}) --wait && {{.rtkPath}} rm --uuid-file="/run/rkt-uuid/{{.env}}/{{.hostname}}"'
+{{-end-}}

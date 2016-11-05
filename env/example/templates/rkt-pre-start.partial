@@ -1,0 +1,4 @@
+{{- define "rkt-pre-start" -}}
+ExecStartPre=-/usr/bin/mkdir -p /run/rkt-uuid/{{.env}}
+ExecStartPre=-{{.rtkPath}} rm --uuid-file="/run/rkt-uuid/{{.env}}/{{.hostname}}"
+{{-end-}}

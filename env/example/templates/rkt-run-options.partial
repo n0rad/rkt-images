@@ -1,0 +1,14 @@
+{{- define "rkt-run-options" -}}
+ExecStart={{.rtkPath}} \
+    --insecure-options=image,ondisk run \
+    --set-env=TEMPLATER_OVERRIDE='{{.environmentAttributesVars}}' \
+    --set-env=TEMPLATER_OVERRIDE_BASE64='{{.environmentAttributesVarsBase64}}' \
+    --set-env=HOSTNAME='{{.hostname}}' \
+    --set-env=HOST="%H" \
+    --hostname={{.hostname}} \
+    {{range .dns.nameservers -}}--dns={{.}} {{end}} \
+    {{range .dns.search }}--dns-search={{.}} {{end}} \
+    --uuid-file-save=/run/rkt-uuid/{{.env}}/{{.hostname}} \
+    --set-env=DOMAINNAME='{{.domainname}}' \
+    --net='{{.netname}}{{if .ip}}:IP={{.ip}}{{end}}' \
+{{-end-}}

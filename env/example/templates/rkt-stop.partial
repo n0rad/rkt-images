@@ -1,0 +1,3 @@
+{{- define "rkt-stop" -}}
+ExecStop=-/bin/bash -c "curl --silent http://$({{.rtkPath}} status $(cat /run/rkt-uuid/{{.env}}/{{.hostname}}) | grep -Eo \"[0-9]+\\.([0-9]\\.?)+\" | grep ^172):65533/disable?shutdown=true > /dev/null"
+{{-end-}}

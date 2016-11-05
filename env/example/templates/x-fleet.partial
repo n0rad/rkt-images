@@ -1,0 +1,6 @@
+{{- define "x-fleet" -}}
+[X-Fleet]
+{{range .fleet -}}
+    {{- . }}
+{{end -}}
+{{-end-}}

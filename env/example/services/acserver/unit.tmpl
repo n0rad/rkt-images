@@ -1,0 +1,21 @@
+[Unit]
+Description={{.hostname}}
+
+[Service]
+{{- template "env-fleet" .}}
+KillMode=mixed
+Restart=always
+LimitNOFILE=65826
+
+ExecStartPre=-{{.rtkPath}} --insecure-options=all fetch "{{.storage}}/aci.awired.net/aci-common/aci-common-{{.aciVersion.common}}-linux-amd64.aci"
+ExecStartPre=-{{.rtkPath}} --insecure-options=all fetch "{{.storage}}/aci.awired.net/aci-acserver/aci-glibc-{{.aciVersion.glibc}}-linux-amd64.aci"
+ExecStartPre=-{{.rtkPath}} --insecure-options=all fetch "{{.storage}}/aci.awired.net/aci-acserver/aci-acserver-{{.aciVersion.acserver}}-linux-amd64.aci"
+
+{{ template "rkt-pre-start" . -}}
+{{ template "rkt-post-stop" . }}
+{{ template "rkt-run-options" . -}}
+    --store-only \
+    --volume=data,kind=host,source={{.storage}} \
+    {{.acis}}
+
+{{- template "x-fleet" . }}

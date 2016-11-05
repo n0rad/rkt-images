@@ -1,0 +1,11 @@
+containers:
+  - aci.awired.net/aci-acserver:0.2-blablacar-1
+
+nodes:
+  - hostname: acserver1
+    storage: /tmp/acis
+    netname: host
+    aciVersion:
+      acserver: 0.2-blablacar-1
+      glibc: 2.21
+      common: 1

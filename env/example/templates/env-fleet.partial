@@ -1,0 +1,4 @@
+{{- define "env-fleet" -}}
+{{.environmentAttributes}}
+{{orDef .environmentAttributesBase64 ""}}
+{{-end-}}
