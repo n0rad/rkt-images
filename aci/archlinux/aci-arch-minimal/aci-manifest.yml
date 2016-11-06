@@ -1,4 +1,4 @@
-name: aci.awired.net/aci-arch-minimal:{{.version}}
+name: aci.awired.net/aci-arch-minimal
 
 builder:
   dependencies:
