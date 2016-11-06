@@ -6,4 +6,4 @@ builder:
 
 aci:
   dependencies:
-    - aci.awired.net/aci-base
+    - aci.awired.net/aci-common

@@ -6,7 +6,7 @@ builder:
 
 aci:
   dependencies:
-    - aci.awired.net/aci-base
+    - aci.awired.net/aci-common
     - aci.awired.net/aci-arch-minimal
   app:
     exec: [bftpd, -D, -c, /etc/bftpd/bftpd.conf]

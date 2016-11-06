@@ -16,6 +16,6 @@ aci:
     environment:
       - { name: GODEBUG, value: "netdns=cgo" }
   dependencies:
-    - aci.awired.net/aci-base
+    - aci.awired.net/aci-common
     - aci.awired.net/aci-arch-minimal
     - aci.awired.net/aci-arch-ceph

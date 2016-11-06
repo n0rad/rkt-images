@@ -11,8 +11,8 @@ export HOSTNAME=`hostname`
 
 HOST_IP=$(echo ${AC_METADATA_URL} | cut -d '/' -f3 | cut -d ':' -f1)
 
-mkdir -p ${DGR_PATH}/attributes/aci-base
-cat > ${DGR_PATH}/attributes/aci-base/prestart.yml <<EOF
+mkdir -p ${DGR_PATH}/attributes/aci-common
+cat > ${DGR_PATH}/attributes/aci-common/prestart.yml <<EOF
 default:
   pod:
     hostname: $HOSTNAME
