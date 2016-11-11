@@ -8,5 +8,6 @@ date=$(date -u '+%Y%m%d_%H%M%S')
 
 cat > /dgr/builder/attributes/version.yml <<EOF
 default:
-  version: "${version}-${date}"
+  version: "${version}"
+  date: "${date}"
 EOF
