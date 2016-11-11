@@ -1,4 +1,4 @@
-name: aci.awired.net/aci-arch-nginx:{{.version}}
+name: aci.awired.net/aci-arch-nginx:{{.version}}-1
 
 builder:
   dependencies:
@@ -10,3 +10,5 @@ aci:
     - aci.awired.net/aci-arch-minimal
   app:
     exec: [ "/usr/sbin/nginx","-g","daemon off;" ]
+    mountPoints:
+      - {name: data, path: /srv/http, readOnly: false}
