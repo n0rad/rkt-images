@@ -1,0 +1,61 @@
+{{- $data := . -}}
+user http;
+worker_processes {{ orDef $data.nginx.worker_processes $data.os.cpu_number }};
+worker_rlimit_nofile {{ orDef $data.nginx.worker_rlimit_nofile $data.os.cpu_processes }};
+
+
+pid /run/nginx.pid;
+
+events {
+	worker_connections {{ orDef $data.nginx.worker_connections $data.os.cpu_processes }};
+	multi_accept on;
+	{{ if $data.nginx.events_handler }}use {{ $data.nginx.events_handler}};{{end}}
+}
+
+http {
+
+  include       /etc/nginx/mime.types;
+  default_type  application/octet-stream;
+
+
+  access_log    {{ $data.nginx.access_log }};
+  server_tokens {{ $data.nginx.server_tokens }};
+  {{ if $data.nginx.error_log }}error_log {{ $data.nginx.error_log }};{{end}}
+
+  sendfile {{ $data.nginx.sendfile }};
+  tcp_nopush on;
+  tcp_nodelay on;
+  
+  {{- if $data.nginx.keepalive -}}
+  keepalive_requests {{ $data.nginx.keepalive.requests  }};
+  keepalive_timeout {{ $data.nginx.keepalive.timeout }};
+  {{- end -}}
+
+  {{- if $data.nginx.gzip -}}
+  gzip on;
+  gzip_http_version 1.0;
+  gzip_comp_level {{ $data.nginx.gzip.comp_level }};
+  gzip_proxied {{ $data.nginx.gzip.proxied }};
+  gzip_vary off;
+  gzip_buffers 16 8k;
+  gzip_types text/plain text/css application/x-javascript text/xml application/xml application/rss+xml application/atom+xml text/javascript application/javascript application/json text/mathml;
+  gzip_min_length  {{ $data.nginx.gzip.min_length }};
+  gzip_disable     {{ $data.nginx.gzip.disable }};
+  {{- end -}}
+  
+  
+  variables_hash_max_size 1024;
+  variables_hash_bucket_size 64;
+  server_names_hash_bucket_size 64;
+  types_hash_max_size 2048;
+  types_hash_bucket_size 64;
+  client_max_body_size 10m;
+  
+  {{- range $data.nginx.extra_config -}}
+  {{ .name }} {{ .value }};
+  {{- end -}}
+
+  include /etc/nginx/conf.d/*.conf;
+  include /etc/nginx/sites-enabled/*;
+
+}

@@ -1,0 +1,38 @@
+{{$data := .}}
+{{ if eq $data.sites.default true }}
+server {
+  listen 80;
+  server_name {{ if $data.sites.server_name }} {{ $data.sites.server_name }} {{ else }} {{ $data.pod.ip }} localhost {{end}};
+  root {{if $data.sites.document_root}}{{$data.sites.document_root}}{{else}}/data{{end}};
+
+  {{ if not (eq $data.sites.php_default "false") }}
+  location / {
+    root {{if $data.sites.document_root}}{{$data.sites.document_root}}{{else}}/srv/http{{end}};
+  }
+  location ~ \.php$ {
+    fastcgi_pass   127.0.0.1:9000;
+    fastcgi_index  index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+  }
+  {{end}}
+
+  {{ if $data.sites.proxy }}
+  location {{ $data.sites.proxy.location }} {
+      proxy_pass {{$data.sites.proxy.endpoint_url}};
+      proxy_http_version 1.1;
+
+      ### Set headers ####
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+      ### Most PHP, Python, Rails, Java App can use this header ###
+      proxy_set_header X-Forwarded-Proto $scheme;
+
+      ### By default we don't want to redirect it ####
+      proxy_redirect     off;
+  }
+  {{ end }}
+}
+{{ end }}
