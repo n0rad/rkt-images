@@ -12,8 +12,6 @@ export PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS=6
 export PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR=/var/lib/plex
 export PLEX_MEDIA_SERVER_TMPDIR=/tmp
 
-
-
 #export LC_ALL="en_US.UTF-8"
 #export LANG="en_US.UTF-8"
 ulimit -s 3000
