@@ -16,5 +16,5 @@ aci:
       - { name: GODEBUG, value: "netdns=cgo" }
   dependencies:
     - aci.awired.net/aci-libc
-    - aci.awired.net/aci-common
+    - aci.awired.net/aci-common:1
 

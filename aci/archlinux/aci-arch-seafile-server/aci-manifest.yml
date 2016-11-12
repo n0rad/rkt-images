@@ -6,8 +6,8 @@ builder:
 
 aci:
   dependencies:
-    - aci.awired.net/aci-common
-    - aci.awired.net/aci-arch-minimal
+    - aci.awired.net/aci-common:1
+    - aci.awired.net/aci-arch-minimal:1
   app:
 #    exec: [ /start.sh ]
 #    mountPoints:

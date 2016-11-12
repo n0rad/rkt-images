@@ -1,8 +1,8 @@
 name: aci.awired.net/aci-acserver:0.2-blablacar-1
 aci:
   dependencies:
-    - aci.awired.net/aci-common
-    - aci.awired.net/aci-glibc
+          - aci.awired.net/aci-common:1
+          - aci.awired.net/aci-glibc:2.21
   app:
     exec: [ /run.sh ]
     mountPoints:

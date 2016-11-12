@@ -6,4 +6,4 @@ builder:
     - aci.awired.net/aci-arch-yaourt
 aci:
   dependencies:
-    - aci.awired.net/aci-common
+    - aci.awired.net/aci-common:1

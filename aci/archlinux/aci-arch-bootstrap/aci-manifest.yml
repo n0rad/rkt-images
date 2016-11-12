@@ -1,4 +1,4 @@
 name: aci.awired.net/aci-arch-bootstrap
 aci:
   dependencies:
-    - aci.awired.net/aci-common
+    - aci.awired.net/aci-common:1
