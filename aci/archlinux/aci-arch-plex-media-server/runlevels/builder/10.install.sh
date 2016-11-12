@@ -13,9 +13,9 @@ su -c "yaourt -S prelink --noconfirm" yaourt
 
 # install
 cp /etc/pacman.conf.save /etc/pacman.conf
-#su -c "yaourt -S systemd --noconfirm" yaourt
 su -c "yaourt -S plex-media-server --noconfirm" yaourt
 
+# start script was replaced by a systemd unit
 #sed -i '/export LC_ALL=/s/^/#/' ${ROOTFS}/opt/plexmediaserver/start.sh
 #sed -i '/export LANG=/s/^/#/' ${ROOTFS}/opt/plexmediaserver/start.sh
 
