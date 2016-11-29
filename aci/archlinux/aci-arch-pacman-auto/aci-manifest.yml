@@ -1,5 +1,5 @@
-name: aci.awired.net/aci-arch-pacman-auto:5.0.1-4-2
+name: aci.awired.net/aci-arch-pacman-auto:5.0.1-4-3
 
 aci:
   dependencies:
-    - aci.awired.net/aci-arch-pacman:5.0.1-4-2
+    - aci.awired.net/aci-arch-pacman:5.0.1-4-3
