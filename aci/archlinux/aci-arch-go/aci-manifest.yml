@@ -1,8 +1,8 @@
-name: aci.awired.net/aci-arch-go:{{.version}}
+name: aci.awired.net/aci-arch-go:{{.version}}-1
 
 builder:
   dependencies:
-    - aci.awired.net/aci-arch-pacman-auto
+    - aci.awired.net/aci-arch-pacman-auto:5.0.1-4-3
 
 aci:
   dependencies:
