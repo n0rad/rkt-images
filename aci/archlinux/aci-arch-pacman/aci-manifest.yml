@@ -1,4 +1,4 @@
-name: aci.awired.net/aci-arch-pacman:{{.version}}-2
+name: aci.awired.net/aci-arch-pacman:{{.version}}-3
 
 builder:
   dependencies:
