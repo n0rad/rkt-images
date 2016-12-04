@@ -1,0 +1,9 @@
+name: aci.awired.net/aci-arch-seafile-server:{{.version}}
+
+aci:
+  dependencies:
+    - aci.awired.net/aci-arch-global
+  app:
+#    exec: [ /start.sh ]
+#    mountPoints:
+#      - {name: data, path: /srv/vm, readOnly: false}

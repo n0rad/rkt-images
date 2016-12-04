@@ -1,0 +1,36 @@
+name: aci.awired.net/aci-arch-ceph:{{.version}}
+
+builder:
+  dependencies:
+    - aci.awired.net/aci-arch-yaourt-auto
+
+aci:
+  dependencies:
+    - aci.awired.net/aci-common:1
+    - aci.awired.net/aci-arch-minimal:1
+    - aci.awired.net/aci-arch-strace
+  app:
+    environment:
+       - name: CEPH_ID
+         value: "1"
+       - name: CEPH_NAME
+         value: "mon"
+    exec:
+       - /usr/bin/ceph-mon
+       - --cluster=combien_pese_un_hister
+       - -d
+       - -i="$CEPH_ID"
+       - -n="$CEPH_NAME"
+       - --setuser ceph
+       - --setgroup ceph
+
+      # - /usr/bin/ceph-osd
+      # - -f
+      # - --cluster=combien_pese_un_hister
+      # - --id=0
+      # - /usr/bin/ceph-mds
+      # - --cluster=combien_pese_un_hister
+      # - -d
+      # - -i $CEPH_ID
+      # - --setuser ceph
+      # - --setgroup ceph
