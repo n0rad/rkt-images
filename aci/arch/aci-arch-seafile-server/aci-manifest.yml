@@ -1,8 +1,13 @@
 name: aci.awired.net/aci-arch-seafile-server:6.0.6-1
 
+build:
+  mountPoints:
+    - {from: /var/cache/pacman, to: /var/cache/pacman}
+    - {from: /var/lib/pacman/sync, to: /var/lib/pacman/sync}
+
 aci:
   dependencies:
-    - aci.awired.net/aci-arch-base
+    - aci.awired.net/aci-arch-base-devel
   app:
 #    exec: [ /start.sh ]
 #    mountPoints:

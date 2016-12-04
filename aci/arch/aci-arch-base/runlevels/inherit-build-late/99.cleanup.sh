@@ -4,10 +4,11 @@
 isLevelEnabled "debug" && set -x
 
 # remove not needed package (build dependencies)
-pacman -Qdt --noconfirm
-pacman -Scc --noconfirm
+if pacman -Qdtq; then
+  pacman -R $(pacman -Qdtq) --noconfirm
+fi
 
-
+# clean cache
 if ! mount | grep /var/cache/pacman &> /dev/null; then
     rm -Rf /var/cache/pacman
 fi
