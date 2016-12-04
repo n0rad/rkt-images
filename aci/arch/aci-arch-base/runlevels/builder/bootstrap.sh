@@ -15,6 +15,7 @@ pacman-key --populate archlinux
 mkdir -p ${ROOTFS}/var/lib/pacman
 pacman -Sy
 
-pacman -S --noconfirm base haveged
+pacman -S --noconfirm base haveged wget
+pacman -Rdd perl --noconfirm
 
 sed -i "s/#Server/Server/g" ${ROOTFS}/etc/pacman.d/mirrorlist

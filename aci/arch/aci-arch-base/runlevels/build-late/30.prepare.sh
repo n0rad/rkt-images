@@ -14,6 +14,3 @@ locale-gen
 
 # key
 echo "KEYMAP=fr" > /etc/vconsole.conf
-
-# required by yaourt
-ln -s /proc/self/fd /dev/fd

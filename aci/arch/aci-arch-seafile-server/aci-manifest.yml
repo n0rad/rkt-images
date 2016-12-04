@@ -1,8 +1,8 @@
-name: aci.awired.net/aci-arch-seafile-server:{{.version}}
+name: aci.awired.net/aci-arch-seafile-server:6.0.6-1
 
 aci:
   dependencies:
-    - aci.awired.net/aci-arch-global
+    - aci.awired.net/aci-arch-base
   app:
 #    exec: [ /start.sh ]
 #    mountPoints:

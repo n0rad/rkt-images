@@ -1,0 +1,10 @@
+name: aci.awired.net/aci-arch-base-devel:${date}
+
+build:
+  mountPoints:
+    - {from: /var/cache/pacman, to: /var/cache/pacman}
+    - {from: /var/lib/pacman/sync, to: /var/lib/pacman/sync}
+
+aci:
+  dependencies:
+    - aci.awired.net/aci-arch-base-devel

@@ -3,4 +3,6 @@ set -e
 . /dgr/bin/functions.sh
 isLevelEnabled "debug" && set -x
 
-pacman -S gcc --noconfirm
+
+pacman -S base-devel git --noconfirm
+

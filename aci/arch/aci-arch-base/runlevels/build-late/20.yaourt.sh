@@ -4,7 +4,7 @@ set -e
 isLevelEnabled "debug" && set -x
 
 
-pacman -Sy yaourt --noconfirm
+pacman -Sy yaourt sudo --noconfirm
 echo "yaourt:x:20002:20002:yaourt:/home/yaourt:/usr/bin/sh" >> /etc/passwd
 echo "yaourt:x:20002:" >> /etc/group
 echo "yaourt:x:20002::::::" >> /etc/shadow

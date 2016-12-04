@@ -9,5 +9,3 @@ sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
 pacman-key --init
 pacman-key --populate archlinux
 killall haveged
-
-pacman -Syyu
