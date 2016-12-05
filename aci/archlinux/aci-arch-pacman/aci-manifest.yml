@@ -1,9 +1,0 @@
-name: aci.awired.net/aci-arch-pacman:{{.version}}-3
-
-builder:
-  dependencies:
-    - aci.awired.net/aci-arch-bootstrap:20161112.111208-vefcc168
-
-aci:
-  dependencies:
-    - aci.awired.net/aci-common:1

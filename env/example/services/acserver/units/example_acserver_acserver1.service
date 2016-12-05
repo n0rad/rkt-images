@@ -1,0 +1,38 @@
+[Unit]
+Description=acserver1
+
+[Service]
+Environment='ATTR_0={"aciList":["aci.awired.net/aci-acserver:0.2-blablacar-1"],"aciVersion":{"acserver":"0.2-blablacar-1","common":1,"glibc":2.21},"acis":"aci.awired.net/aci-acserver:0.2-blablacar-1 ","acserver":{"password":"pass","username":"admin"},"dns":{"nameservers":["10.11.254.253","10.11.254.254"]},"domainname":"localdomain","env":"example","hostname":"acserver1","netname":"host","rtkPath":"/usr/bin/rkt","storage":"/tmp/acis"}'
+
+Environment='ATTR_BASE64_0=base64,eyJhY2lMaXN0IjpbImFjaS5hd2lyZWQubmV0L2FjaS1hY3NlcnZlcjowLjItYmxhYmxhY2FyLTEiXSwiYWNpVmVyc2lvbiI6eyJhY3NlcnZlciI6IjAuMi1ibGFibGFjYXItMSIsImNvbW1vbiI6MSwiZ2xpYmMiOjIuMjF9LCJhY2lzIjoiYWNpLmF3aXJlZC5uZXQvYWNpLWFjc2VydmVyOjAuMi1ibGFibGFjYXItMSAiLCJhY3NlcnZlciI6eyJwYXNzd29yZCI6InBhc3MiLCJ1c2VybmFtZSI6ImFkbWluIn0sImRucyI6eyJuYW1lc2VydmVycyI6WyIxMC4xMS4yNTQuMjUzIiwiMTAuMTEuMjU0LjI1NCJdfSwiZG9tYWlubmFtZSI6ImxvY2FsZG9tYWluIiwiZW52IjoiZXhhbXBsZSIsImhvc3RuYW1lIjoiYWNzZXJ2ZXIxIiwibmV0bmFtZSI6Imhvc3QiLCJydGtQYXRoIjoiL3Vzci9iaW4vcmt0Iiwic3RvcmFnZSI6Ii90bXAvYWNpcyJ9'
+
+
+KillMode=mixed
+Restart=always
+LimitNOFILE=65826
+
+ExecStartPre=-/usr/bin/rkt --insecure-options=all fetch "/tmp/acis/aci.awired.net/aci-common/aci-common-1-linux-amd64.aci"
+ExecStartPre=-/usr/bin/rkt --insecure-options=all fetch "/tmp/acis/aci.awired.net/aci-glibc/aci-glibc-2.21-linux-amd64.aci"
+ExecStartPre=-/usr/bin/rkt --insecure-options=all fetch "/tmp/acis/aci.awired.net/aci-acserver/aci-acserver-0.2-blablacar-1-linux-amd64.aci"
+
+ExecStartPre=-/usr/bin/mkdir -p /run/rkt-uuid/example
+ExecStartPre=-/usr/bin/rkt rm --uuid-file="/run/rkt-uuid/example/acserver1"
+ExecStopPost=-/bin/bash -c '/usr/bin/rkt status $(cat /run/rkt-uuid/example/acserver1) --wait && /usr/bin/rkt rm --uuid-file="/run/rkt-uuid/example/acserver1"'
+
+ExecStart=/usr/bin/rkt \
+    --insecure-options=image,ondisk run \
+    --set-env=TEMPLATER_OVERRIDE='${ATTR_0}' \
+    --set-env=TEMPLATER_OVERRIDE_BASE64='${ATTR_BASE64_0}' \
+    --set-env=HOSTNAME='acserver1' \
+    --set-env=HOST="%H" \
+    --hostname=acserver1 \
+    --dns=10.11.254.253 --dns=10.11.254.254  \
+     \
+    --uuid-file-save=/run/rkt-uuid/example/acserver1 \
+    --set-env=DOMAINNAME='localdomain' \
+    --net='host' \
+    --store-only \
+    --volume=data,kind=host,source=/tmp/acis \
+    aci.awired.net/aci-acserver:0.2-blablacar-1 
+
+[X-Fleet]

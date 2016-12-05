@@ -1,4 +1,4 @@
-name: aci.awired.net/aci-acserver:0.2-blablacar-1
+name: aci.awired.net/aci-acserver:0.3-blablacar-1
 aci:
   dependencies:
           - aci.awired.net/aci-common:1

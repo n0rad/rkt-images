@@ -1,0 +1,5 @@
+name: aci.awired.net/aci-arch-yaourt:{{.version}}-2
+
+aci:
+  dependencies:
+    - aci.awired.net/aci-arch-pacman:5.0.1-4-4
