@@ -9,6 +9,6 @@ aci:
   dependencies:
     - aci.awired.net/aci-arch-base-devel
   app:
-#    exec: [ /start.sh ]
-#    mountPoints:
-#      - {name: data, path: /srv/vm, readOnly: false}
+    exec: [ /start.sh ]
+    mountPoints:
+      - {name: data, path: /opt, readOnly: false}
