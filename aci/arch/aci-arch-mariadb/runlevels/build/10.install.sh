@@ -3,17 +3,17 @@ set -e
 . /dgr/bin/functions.sh
 isLevelEnabled "debug" && set -x
 
-app="cassandra"
+pacman -S mariadb --noconfirm
 
-version=`dpkg -s ${app} | grep 'Version: ' | cut -d' ' -f 2`
+app="mysql"
+
 user=$(cat /etc/passwd | grep ${app} | cut -f3 -d:)
 group=$(cat /etc/passwd | grep ${app} | cut -f4 -d:)
 
-cat > /dgr/builder/attributes/version.yml <<EOF
+cat > /dgr/builder/attributes/user.yml <<EOF
 default:
   user: ${user}
   group: ${group}
-  version: ${version}
 EOF
 
 exit 0
