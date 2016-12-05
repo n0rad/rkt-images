@@ -1,4 +1,4 @@
-name: aci.awired.net/aci-arch-base-devel:{{.date}}
+name: aci.awired.net/aci-arch-buildroot:2016.08.1-1
 
 build:
   mountPoints:
@@ -7,4 +7,4 @@ build:
 
 aci:
   dependencies:
-    - aci.awired.net/aci-arch-base
+    - aci.awired.net/aci-arch-base-devel

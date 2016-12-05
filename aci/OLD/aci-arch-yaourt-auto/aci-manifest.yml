@@ -1,5 +1,0 @@
-name: aci.awired.net/aci-arch-yaourt-auto:1.8.1-1-1
-
-aci:
-  dependencies:
-    - aci.awired.net/aci-arch-yaourt:1.8.1-1-1

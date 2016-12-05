@@ -4,7 +4,7 @@ set -e
 isLevelEnabled "debug" && set -x
 
 # dependencies
-pacman -Sy wget cpio python unzip rsync bc tar gzip --noconfirm
+pacman -Sy python --noconfirm
 
 
 version=${ACI_VERSION%-*}

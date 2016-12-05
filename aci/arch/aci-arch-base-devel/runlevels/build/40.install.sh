@@ -4,5 +4,5 @@ set -e
 isLevelEnabled "debug" && set -x
 
 
-pacman -S base-devel git --noconfirm
+pacman -S base-devel git rsync bc unzip cpio --noconfirm
 

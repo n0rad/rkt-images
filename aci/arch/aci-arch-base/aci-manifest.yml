@@ -1,4 +1,4 @@
-name: aci.awired.net/aci-arch-base:${date}
+name: aci.awired.net/aci-arch-base:{{.date}}
 
 builder:
   dependencies:

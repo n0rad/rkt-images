@@ -4,6 +4,10 @@ set -e
 isLevelEnabled "debug" && set -x
 
 package_names= \
+    openssh \
+    zsh \
+    oh-my-zsh-git \
+    fuse \
     atop \
     bash-completion \
     curl \
