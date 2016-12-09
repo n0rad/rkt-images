@@ -6,7 +6,7 @@ mkdir /dgr/attributes/prestart
 cat > /dgr/attributes/prestart/prestart.yml <<EOF
 ---
 default:
-  replication:
-    mysqld:
+  mysql:
+    replication:
       server_id: '$SERVERID'
 EOF

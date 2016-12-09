@@ -16,6 +16,8 @@ if ! mount | grep /var/lib/pacman/sync &> /dev/null; then
     rm -Rf /var/lib/pacman/sync
 fi
 
+rm -Rf /srv/* # so we can replace by links
+
 rm -Rf /usr/share/doc/*
 rm -Rf /usr/share/man/*
 rm -Rf /usr/share/help/*

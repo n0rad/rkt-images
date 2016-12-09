@@ -1,0 +1,18 @@
+override:
+  nginx:
+    servers:
+      default: [
+        "listen 80;",
+        "listen [::]:80 default_server;",
+        "",
+        "root /srv/http;",
+        "index index.php index.htm index.html;",
+        "",
+        "location ~ .php$ {",
+        "        root /srv/http;",
+        "        fastcgi_pass 127.0.0.1:9999;",
+        "        fastcgi_index  index.php;",
+        "        fastcgi_param  SCRIPT_FILENAME /srv/http$fastcgi_script_name;",
+        "        include fastcgi_params;",
+        "}",
+      ]

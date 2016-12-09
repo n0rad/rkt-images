@@ -1,0 +1,7 @@
+default:
+  ttrss:
+    db:
+      name:
+      user:
+      password:
+    url: http://localhost

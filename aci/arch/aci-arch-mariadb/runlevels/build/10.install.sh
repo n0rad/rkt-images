@@ -6,7 +6,6 @@ isLevelEnabled "debug" && set -x
 pacman -S mariadb --noconfirm
 
 app="mysql"
-
 user=$(cat /etc/passwd | grep ${app} | cut -f3 -d:)
 group=$(cat /etc/passwd | grep ${app} | cut -f4 -d:)
 

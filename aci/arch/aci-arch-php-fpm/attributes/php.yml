@@ -1,0 +1,11 @@
+default:
+  php:
+    extensions:
+      - curl
+      - zip
+      - iconv
+      - gd
+      - mysqli
+      - pdo_mysql
+
+

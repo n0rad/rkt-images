@@ -2,6 +2,8 @@
 set -e
 dir=$( dirname $0 )
 
+rootAcis=${dir}/../aci
+
 if [ "$(id -u)" != "0" ]; then
 	echo "Sorry, you are not root."
 	exit 1
@@ -22,30 +24,23 @@ buildAci() {
 
 
 # none
-buildAci ${dir}/aci/none/aci-base
-buildAci ${dir}/aci/none/aci-libc
+buildAci ${rootAcis}/none/aci-common
+buildAci ${rootAcis}/none/aci-glibc
+buildAci ${rootAcis}/none/aci-ttrss
+buildAci ${rootAcis}/none/aci-acserver
 
 # archlinux
-buildAci ${dir}/aci/archlinux/aci-arch-bootstrap
-buildAci ${dir}/aci/archlinux/aci-arch-pacman
-buildAci ${dir}/aci/archlinux/aci-arch-pacman-auto
-buildAci ${dir}/aci/archlinux/aci-arch-yaourt
-buildAci ${dir}/aci/archlinux/aci-arch-yaourt-auto
-buildAci ${dir}/aci/archlinux/aci-arch-minimal
+buildAci ${rootAcis}/arch/aci-arch-bootstrap
+buildAci ${rootAcis}/arch/aci-arch-base
+buildAci ${rootAcis}/arch/aci-arch-base-devel
 
-buildAci ${dir}/aci/archlinux/aci-arch-bftpd
-buildAci ${dir}/aci/archlinux/aci-arch-bind
-buildAci ${dir}/aci/archlinux/aci-arch-dhcp
-buildAci ${dir}/aci/archlinux/aci-arch-nginx
-buildAci ${dir}/aci/archlinux/aci-arch-git
-buildAci ${dir}/aci/archlinux/aci-arch-go
-#buildAci ${dir}/aci/archlinux/aci-arch-ceph
-#buildAci ${dir}/aci/archlinux/aci-arch-redis
-#buildAci ${dir}/aci/archlinux/aci-arch-jdk
-#buildAci ${dir}/aci/archlinux/aci-arch-jre
-#buildAci ${dir}/aci/archlinux/aci-arch-mariadb
+buildAci ${rootAcis}/arch/aci-arch-base-bftpd
+buildAci ${rootAcis}/arch/aci-arch-base-mariadb
+buildAci ${rootAcis}/arch/aci-arch-base-nginx
+buildAci ${rootAcis}/arch/aci-arch-base-php-fpm
 
-#buildAci ${dir}/aci/archlinux/aci-arch-dockyard
-#buildAci ${dir}/aci/archlinux/aci-arch-seafile-server
+#buildAci ${dir}/aci/arch/aci-arch-base-plex-media-server
+#buildAci ${dir}/aci/arch/aci-arch-base-seafile-server
+#buildAci ${dir}/aci/arch/aci-arch-base-buildroot
 
 echo -e "\n\033[0;32mEverything looks good !\033[0m\n"

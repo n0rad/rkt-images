@@ -1,4 +1,7 @@
 #!/dgr/bin/busybox sh
+set -e
+. /dgr/bin/functions.sh
+isLevelEnabled "debug" && set -x
 
 BLUE='\e[94m'
 NC='\e[0m'
@@ -8,9 +11,6 @@ source /run/env.sh
 
 # first install
 if [ ! -d /var/lib/mysql/data  ]; then
-  echo -e "${BLUE}### Create MySQL OS user and group${NC}"
-  useradd mysql -U
-
   echo -e "${BLUE}### Create directories${NC}"
   mkdir -p /var/lib/mysql/tmp
   mkdir -p /var/lib/mysql/data
@@ -26,6 +26,7 @@ if [ ! -d /var/lib/mysql/data  ]; then
   /usr/sbin/mysqld &
   
   i=0
+  set +e
   while [ $i -lt 10 ]
   do
     /usr/bin/mysqladmin --user='root' --password='' ping>&/dev/null
@@ -38,7 +39,8 @@ if [ ! -d /var/lib/mysql/data  ]; then
     fi
     i=$[$i+1]
   done
-  
+  set -e
+
   echo -e "${BLUE}### Create MySQL Users${NC}"
   /usr/bin/mysqladmin --user='root' --password='' password "${ROOT_PASSWORD}"
   
@@ -47,9 +49,17 @@ if [ ! -d /var/lib/mysql/data  ]; then
     /bin/echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '${ROOT_PASSWORD}' WITH GRANT OPTION;" | /usr/bin/mysql --user='root' --password="${ROOT_PASSWORD}"
   fi
 
+  if [ "${INIT}" != "false" ]; then
+    echo -e "${BLUE}### Create User ${INIT_USER} and db ${INIT_DB} ${NC}"
+    /bin/echo "CREATE DATABASE ${INIT_DB};" | /usr/bin/mysql --user='root' --password="${ROOT_PASSWORD}"
+    /bin/echo "CREATE USER '${INIT_USER}'@'localhost' IDENTIFIED BY '${INIT_PASSWORD}';" | /usr/bin/mysql --user='root' --password="${ROOT_PASSWORD}"
+    /bin/echo "GRANT ALL ON ${INIT_DB}.* TO '${INIT_USER}'@'localhost';" | /usr/bin/mysql --user='root' --password="${ROOT_PASSWORD}"
+  fi
+
   echo -e "${BLUE}### Stop MySQL${NC}"
   /usr/bin/pkill mysqld
   i=0
+  set +e
   while [ $i -lt 10 ]
   do
     /usr/bin/mysqladmin --user='root' --password="${ROOT_PASSWORD}" ping>&/dev/null
@@ -62,6 +72,7 @@ if [ ! -d /var/lib/mysql/data  ]; then
     fi
     i=$[$i+1]
   done
+  set -e
 fi
 
 echo -e "${BLUE}### Delete environment file${NC}"

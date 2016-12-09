@@ -1,0 +1,13 @@
+name: aci.awired.net/pod-ttrss
+pod:
+  apps:
+    - dependencies:
+        - aci.awired.net/aci-arch-nginx
+        - aci.awired.net/aci-ttrss
+
+    - dependencies:
+        - aci.awired.net/aci-arch-php-fpm
+        - aci.awired.net/aci-ttrss
+
+    - dependencies:
+        - aci.awired.net/aci-arch-mariadb
