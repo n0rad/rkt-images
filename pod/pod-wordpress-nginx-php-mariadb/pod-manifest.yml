@@ -1,8 +1,0 @@
-name: awired.net/pod-wordpress-full
-pod:
-  apps:
-    - dependencies:
-        - awired.net/aci-arch-wordpress
-
-    - dependencies:
-        - awired.net/aci-arch-nginx

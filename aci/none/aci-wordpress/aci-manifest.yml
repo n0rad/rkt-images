@@ -1,0 +1,4 @@
+name: aci.awired.net/aci-wordpress:4.7-1
+app:
+  mountPoints:
+    - {name: data, path: /wordpress/wp-content, readOnly: false}

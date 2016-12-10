@@ -1,0 +1,15 @@
+default:
+  wordpress:
+    db:
+      name:
+      user:
+      password:
+    keys:
+      auth_key: vsPCLdV6suJJ6zjhpVrmT6AG
+      secure_auth_ley: f6hFLNSZg29JFyq6vPMYUD7G
+      logged_in_key: 4XPwA66VV4csjmZRAwAv9Rfs
+      nonce_key: XHSVmvJfSy6TZsFawrnLfN5n
+      auth_salt: RD2hG6UznxSQpzhguDaLxr2T
+      secure_auth_salt: CYTmbkfVVLm9nqPuvXWL39NW
+      logged_in_salt: VgbPYMWPMKyK2UkHtHeuJHLk
+      nonce_salt: 3GwraUwe4nDD5bHq5bjLRZWv
