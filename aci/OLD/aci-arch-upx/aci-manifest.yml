@@ -1,9 +1,0 @@
-name: aci.awired.net/aci-arch-upx
-
-builder:
-  dependencies:
-    - aci.awired.net/aci-arch-pacman:5.0.1-4-1
-
-aci:
-  dependencies:
-    - aci.awired.net/aci-common:1

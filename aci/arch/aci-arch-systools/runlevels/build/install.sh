@@ -3,46 +3,36 @@ set -e
 . /dgr/bin/functions.sh
 isLevelEnabled "debug" && set -x
 
-package_names= \
+package_names=$(echo " \
     openssh \
     zsh \
     oh-my-zsh-git \
     fuse \
     atop \
     bash-completion \
-    curl \
-    dh-autoreconf \
-    dialog \
     htop \
     iftop \
     iotop \
     iperf \
     ipmitool \
     iproute \
-    iptables \
-    iptraf \
-    iputils-arping \
-    iputils-ping \
-    iputils-tracepath \
+    iptraf-ng \
+    traceroute \
     itop \
-    mtr-tiny \
+    mtr \
     multitail \
     ncdu \
     net-tools \
     netcat \
     nmon \
-    rsync \
-    saidar \
-    ssh \
     strace \
-    sudo \
     sysstat \
     tcpdump \
     tcpflow \
-    telnet \
     tree \
     vim \
-    wget \
-    dnsutils
+    dnsutils \
+    libstatgrab \
+    ")
 
 su -c "yaourt -S ${package_names} --noconfirm" yaourt
