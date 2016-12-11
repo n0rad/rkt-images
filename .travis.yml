@@ -2,8 +2,7 @@ sudo: required
 dist: trusty
 
 install:
-  - sudo ./bin/.travis-install-rkt.sh
-  - sudo ./bin/.travis-install-dgr.sh
+  - sudo ./bin/travis-install.sh
 
 script:
   - sudo ./bin/build-all.sh

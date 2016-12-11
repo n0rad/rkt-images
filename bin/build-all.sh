@@ -26,14 +26,16 @@ buildAci() {
 # none
 buildAci ${rootAcis}/none/aci-common
 buildAci ${rootAcis}/none/aci-glibc
-buildAci ${rootAcis}/none/aci-ttrss
 buildAci ${rootAcis}/none/aci-acserver
+buildAci ${rootAcis}/none/aci-ttrss
+buildAci ${rootAcis}/none/aci-wordpress
 
 # archlinux
 buildAci ${rootAcis}/arch/aci-arch-bootstrap
 buildAci ${rootAcis}/arch/aci-arch-base
 buildAci ${rootAcis}/arch/aci-arch-base-devel
 
+buildAci ${rootAcis}/arch/aci-arch-base-qemu
 buildAci ${rootAcis}/arch/aci-arch-base-bftpd
 buildAci ${rootAcis}/arch/aci-arch-base-mariadb
 buildAci ${rootAcis}/arch/aci-arch-base-nginx
