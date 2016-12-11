@@ -1,4 +1,4 @@
-name: awired.net/pod-seafile
+name: aci.awired.net/pod-seafile
 pod:
   apps:
     - dependencies:
