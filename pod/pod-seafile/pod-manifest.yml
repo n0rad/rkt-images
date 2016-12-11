@@ -2,11 +2,11 @@ name: awired.net/pod-seafile
 pod:
   apps:
     - dependencies:
-        - awired.net/aci-arch-seafile-server
+        - aci.awired.net/aci-arch-seafile-server
 
     - dependencies:
-        - awired.net/aci-arch-nginx
-        - awired.net/aci-arch-seafile-server
+        - aci.awired.net/aci-arch-nginx
+        - aci.awired.net/aci-arch-seafile-server
 
     - dependencies:
-        - awired.net/aci-arch-mariadb
+        - aci.awired.net/aci-arch-mariadb

@@ -11,4 +11,4 @@ aci:
   app:
     exec: [ /start.sh ]
     mountPoints:
-      - {name: data, path: /opt, readOnly: false}
+      - {name: data, path: /seafile, readOnly: false}

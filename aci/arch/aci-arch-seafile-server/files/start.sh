@@ -1,11 +1,24 @@
-#!/dgr/bin/busybox sh
+#!/bin/bash
 set -e
 . /dgr/bin/functions.sh
 isLevelEnabled "debug" && set -x
 
-sleep 10 # wait for db
-/opt/seafile-server-latest/seafile.sh start
-sleep 10
-/opt/seafile-server-latest/seahub.sh start-fastcgi
+while [ ! -d /seafile/ccnet ]; do
+  echo "Seafile is not initialized. Waiting"
+  sleep 20
+done
 
-exit 0
+while [ ! -f /seafile/ok ]; do
+  echo "Seafile is not ok."
+  sleep 20
+done
+
+sleep 40
+echo "Starting seafile"
+/seafile/seafile-server-latest/seafile.sh start
+sleep 20
+echo "Starting seahub"
+/seafile/seafile-server-latest/seahub.sh start-fastcgi
+
+echo "Starting gc cron"
+crond -n

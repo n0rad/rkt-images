@@ -4,7 +4,7 @@ set -e
 isLevelEnabled "debug" && set -x
 
 # seafile package sux so :
-su -c "yaourt -S python2-pillow python2-setuptools mysql-python libselinux --noconfirm" yaourt
+su -c "yaourt -S python2-pillow python2-setuptools mysql-python libselinux cronie --noconfirm" yaourt
 groupadd -g 500 seafile
 useradd -u 500 -g 500 seafile
 
