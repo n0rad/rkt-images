@@ -4,7 +4,7 @@ set -e
 isLevelEnabled "debug" && set -x
 
 # time
-rm /etc/localtime
+rm -f /etc/localtime
 ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
 
 # locale
