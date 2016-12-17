@@ -35,11 +35,11 @@ buildAci ${rootAcis}/arch/aci-arch-bootstrap
 buildAci ${rootAcis}/arch/aci-arch-base
 buildAci ${rootAcis}/arch/aci-arch-base-devel
 
-buildAci ${rootAcis}/arch/aci-arch-base-qemu
-buildAci ${rootAcis}/arch/aci-arch-base-bftpd
-buildAci ${rootAcis}/arch/aci-arch-base-mariadb
-buildAci ${rootAcis}/arch/aci-arch-base-nginx
-buildAci ${rootAcis}/arch/aci-arch-base-php-fpm
+buildAci ${rootAcis}/arch/aci-arch-qemu
+buildAci ${rootAcis}/arch/aci-arch-bftpd
+buildAci ${rootAcis}/arch/aci-arch-mariadb
+buildAci ${rootAcis}/arch/aci-arch-nginx
+buildAci ${rootAcis}/arch/aci-arch-php-fpm
 
 #buildAci ${dir}/aci/arch/aci-arch-base-plex-media-server
 #buildAci ${dir}/aci/arch/aci-arch-base-seafile-server
