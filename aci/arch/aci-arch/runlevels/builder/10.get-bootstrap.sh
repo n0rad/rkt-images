@@ -11,7 +11,7 @@ RELEASE_DATE=$(curl -Ls ${URL}|grep -o "[0-9]\{4\}\.[0-9]\{2\}\.[0-9]\{2\}"|head
 FILENAME=archlinux-bootstrap-${RELEASE_DATE}-x86_64.tar.gz
 FILE_URL=${URL}/${FILENAME}
 
-cd ${CACHE}
+mkdir -p ${CACHE} && cd ${CACHE}
 
 # download / extract bootstrap
 [ -f ${FILENAME} ] || wget ${FILE_URL}
