@@ -43,6 +43,8 @@ cat << EOF | chroot ${BOOTSTRAP}
 
 ROOTFS=\${ROOTFS#/opt}
 
+mkdir /run/shm # to support debian like /dev/shm
+
 # keyring
 haveged
 pacman-key --init
@@ -52,8 +54,7 @@ killall haveged
 # prepare server list
 cat /etc/pacman.d/mirrorlist | cut -d# -f2 > /etc/pacman.d/mirrorlist2
 mv /etc/pacman.d/mirrorlist2 /etc/pacman.d/mirrorlist
-#sed is not installed
-#sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
+#sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist #sed is not installed
 
 pacstrap -d \${ROOTFS} base haveged wget less
 
