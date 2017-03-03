@@ -4,6 +4,9 @@ dir=$( dirname $0 )
 
 rootAcis=${dir}/../aci
 
+ : ${cmd:=clean install}
+
+
 if [ "$(id -u)" != "0" ]; then
 	echo "Sorry, you are not root."
 	exit 1
@@ -19,7 +22,7 @@ fi
 buildAci() {
     echo -e "\n\n\e[0;30;42mBuilding aci : ${1}\e[0m\n\n"
     sleep 1
-    dgr -W ${1} clean install
+    dgr -W ${1} ${cmd}
 }
 
 
@@ -38,8 +41,9 @@ buildAci ${rootAcis}/arch/aci-arch-mariadb
 buildAci ${rootAcis}/arch/aci-arch-nginx
 buildAci ${rootAcis}/arch/aci-arch-php-fpm
 
-#buildAci ${dir}/aci/arch/aci-arch-base-plex-media-server
-#buildAci ${dir}/aci/arch/aci-arch-base-seafile-server
+buildAci ${dir}/aci/arch/aci-arch-plex-media-server
+buildAci ${dir}/aci/arch/aci-arch-seafile-server
+
 #buildAci ${dir}/aci/arch/aci-arch-base-buildroot
 
 echo -e "\n\033[0;32mEverything looks good !\033[0m\n"
