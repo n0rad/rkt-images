@@ -31,10 +31,7 @@ buildAci ${rootAcis}/none/aci-ttrss
 buildAci ${rootAcis}/none/aci-wordpress
 
 # archlinux
-buildAci ${rootAcis}/arch/aci-arch-bootstrap
-buildAci ${rootAcis}/arch/aci-arch-base
-buildAci ${rootAcis}/arch/aci-arch-base-devel
-
+buildAci ${rootAcis}/arch/aci-arch
 buildAci ${rootAcis}/arch/aci-arch-qemu
 buildAci ${rootAcis}/arch/aci-arch-bftpd
 buildAci ${rootAcis}/arch/aci-arch-mariadb
