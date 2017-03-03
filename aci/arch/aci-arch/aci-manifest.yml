@@ -1,0 +1,15 @@
+name: aci.awired.net/aci-arch
+
+builder:
+  mountPoints:
+    - {from: /var/cache/pacman, to: /opt/var/cache/pacman}
+    - {from: /var/lib/pacman/sync, to: /opt/var/lib/pacman/sync}
+
+build:
+  mountPoints:
+    - {from: /var/cache/pacman, to: /var/cache/pacman}
+    - {from: /var/lib/pacman/sync, to: /var/lib/pacman/sync}
+
+aci:
+  dependencies:
+    - aci.awired.net/aci-common:1

@@ -7,6 +7,6 @@ build:
 
 aci:
   dependencies:
-    - aci.awired.net/aci-arch-base
+    - aci.awired.net/aci-arch
   app:
     exec: [ "/usr/sbin/php-fpm", "-F" ]

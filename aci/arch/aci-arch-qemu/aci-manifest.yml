@@ -1,4 +1,4 @@
-name: aci.awired.net/aci-arch-qemu:{{.version}}-1
+name: aci.awired.net/aci-arch-qemu:{{.version}}-2
 
 build:
   mountPoints:
@@ -7,7 +7,7 @@ build:
 
 aci:
   dependencies:
-    - aci.awired.net/aci-arch-base
+    - aci.awired.net/aci-arch
   app:
     exec: [ /start.sh ]
     mountPoints:

@@ -7,7 +7,7 @@ build:
 
 aci:
   dependencies:
-    - aci.awired.net/aci-arch-base-devel
+    - aci.awired.net/aci-arch
   app:
     user: {{.user}}
     group: {{.group}}

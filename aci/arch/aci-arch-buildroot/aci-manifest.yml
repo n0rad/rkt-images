@@ -7,4 +7,4 @@ build:
 
 aci:
   dependencies:
-    - aci.awired.net/aci-arch-base-devel
+    - aci.awired.net/aci-arch

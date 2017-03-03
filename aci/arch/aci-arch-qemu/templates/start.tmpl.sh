@@ -20,7 +20,7 @@ dd if=/dev/kvm count=0 2>/dev/null || {
 }
 
 {{- range .vm.drives -}}
-if [ ! -f {{.file}} ]; then
+if [ ! -e {{.file}} ]; then
     echo_green "Creating vm drive"
     dd if=/dev/zero of={{.file}} bs=1M count={{.sizeInGb}}000
 fi
