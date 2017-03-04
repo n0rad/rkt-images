@@ -23,8 +23,8 @@ override:
         "    fastcgi_param    SERVER_NAME         $server_name;",
         "    fastcgi_param   REMOTE_ADDR         $remote_addr;",
         "",
-        "    access_log      /var/log/nginx/seahub.access.log;",
-        "    error_log       /var/log/nginx/seahub.error.log;",
+        "    access_log      /seafile/logs/nginx-seahub.access.log;",
+        "    error_log       /seafile/logs/nginx-seahub.error.log;",
         "}",
         "",
         "location /seafhttp {",
@@ -38,7 +38,7 @@ override:
         "}",
         "",
         "location /media {",
-        "    root /seafile-server/seahub;",
+        "    root /seafile/seafile-server/seahub;",
         "}",
       ]
 

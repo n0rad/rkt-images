@@ -3,10 +3,7 @@ pod:
   apps:
     - dependencies:
         - aci.awired.net/aci-arch-seafile-server
-
-    - dependencies:
-        - aci.awired.net/aci-arch-nginx
-        - aci.awired.net/aci-arch-seafile-server
+        - aci.awired.net/aci-arch-nginx           # seahub create caches files needed by nginx
 
     - dependencies:
         - aci.awired.net/aci-arch-mariadb

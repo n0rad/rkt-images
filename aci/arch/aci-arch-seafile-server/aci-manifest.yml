@@ -1,4 +1,4 @@
-name: aci.awired.net/aci-arch-seafile-server:6.0.8-1
+name: aci.awired.net/aci-arch-seafile-server:6.0.8-2
 
 build:
   mountPoints:
@@ -11,4 +11,4 @@ aci:
   app:
     exec: [ /start.sh ]
     mountPoints:
-      - {name: data, path: /seafile, readOnly: false}
+      - {name: seafile-data, path: /seafile, readOnly: false}

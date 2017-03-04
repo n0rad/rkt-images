@@ -1,15 +1,14 @@
 default:
   mysql:
 
+    root_password: "azerty"
+    remote_root: false
+
     init:
       active: true
       db: app
       user: app_user
       password: password
-
-    remote_root:
-      active: false
-      password: "azerty"
 
     replication:
       log_bin: true

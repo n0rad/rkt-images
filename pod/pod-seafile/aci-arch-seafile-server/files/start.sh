@@ -18,7 +18,10 @@ echo "Starting seafile"
 /seafile/seafile-server-latest/seafile.sh start
 sleep 20
 echo "Starting seahub"
-/seafile/seafile-server-latest/seahub.sh start
+/seafile/seafile-server-latest/seahub.sh start-fastcgi
 
 echo "Starting gc cron"
 crond
+
+echo "Starting nginx"
+/usr/sbin/nginx -g "daemon off;"
