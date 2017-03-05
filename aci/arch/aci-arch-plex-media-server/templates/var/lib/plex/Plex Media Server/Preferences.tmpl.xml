@@ -9,3 +9,5 @@
              ManualPortMappingPort="{{.plex.port}}"
              allowMediaDeletion="{{.plex.allowMediaDeletion}}"
 />
+
+

@@ -2,12 +2,9 @@ name: aci.awired.net/pod-wordpress
 pod:
   apps:
     - dependencies:
+        - aci.awired.net/aci-wordpress
         - aci.awired.net/aci-arch-nginx
-        - aci.awired.net/aci-wordpress
-
-    - dependencies:
         - aci.awired.net/aci-arch-php-fpm
-        - aci.awired.net/aci-wordpress
 
     - dependencies:
         - aci.awired.net/aci-arch-mariadb

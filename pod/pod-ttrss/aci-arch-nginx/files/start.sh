@@ -3,4 +3,5 @@ set -e
 . /dgr/bin/functions.sh
 isLevelEnabled "debug" && set -x
 
-ln -s /ttrss /srv/http
+/usr/sbin/nginx
+/usr/sbin/php-fpm -F
