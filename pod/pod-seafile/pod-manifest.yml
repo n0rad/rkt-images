@@ -1,9 +1,10 @@
 name: aci.awired.net/pod-seafile
 pod:
   apps:
-    - dependencies:
-        - aci.awired.net/aci-arch-seafile-server
-        - aci.awired.net/aci-arch-nginx           # seahub create caches files needed by nginx
+    - name: aci-arch-seafile-server
+      dependencies:
+        - aci.awired.net/aci-arch-nginx          # seahub create caches files needed by nginx
+        - aci.awired.net/aci-arch-seafile-server # seafile-server as final dep for seafile user & group
 
     - dependencies:
         - aci.awired.net/aci-arch-mariadb

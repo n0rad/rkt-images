@@ -15,7 +15,8 @@ done
 
 sleep 40
 echo "Starting seafile"
-/seafile/seafile-server-latest/seafile.sh start
+#/seafile/seafile-server-latest/seafile.sh start # data as root
+su seafile /seafile/seafile-server-latest/seafile.sh start # data as seafile
 sleep 20
 echo "Starting seahub"
 /seafile/seafile-server-latest/seahub.sh start-fastcgi
