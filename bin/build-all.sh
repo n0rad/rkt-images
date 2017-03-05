@@ -35,14 +35,16 @@ buildAci ${rootAcis}/none/aci-wordpress
 
 # archlinux
 buildAci ${rootAcis}/arch/aci-arch
+buildAci ${rootAcis}/arch/aci-arch-script
+buildAci ${rootAcis}/arch/aci-arch-dhcp
+buildAci ${rootAcis}/arch/aci-arch-bind
 buildAci ${rootAcis}/arch/aci-arch-qemu
 buildAci ${rootAcis}/arch/aci-arch-bftpd
 buildAci ${rootAcis}/arch/aci-arch-mariadb
 buildAci ${rootAcis}/arch/aci-arch-nginx
 buildAci ${rootAcis}/arch/aci-arch-php-fpm
-
-buildAci ${dir}/aci/arch/aci-arch-plex-media-server
-buildAci ${dir}/aci/arch/aci-arch-seafile-server
+buildAci ${rootAcis}/arch/aci-arch-seafile-server
+buildAci ${rootAcis}/arch/aci-arch-plex-media-server
 
 #buildAci ${dir}/aci/arch/aci-arch-base-buildroot
 

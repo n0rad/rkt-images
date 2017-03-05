@@ -1,4 +1,4 @@
-name: aci.awired.net/aci-arch-plex-media-server:{{.version}}-2
+name: aci.awired.net/aci-arch-plex-media-server:{{.version}}-3
 
 build:
   mountPoints:
@@ -9,10 +9,10 @@ aci:
   dependencies:
     - aci.awired.net/aci-arch
   app:
-    user: {{.user}}
-    group: {{.group}}
+#    user: {{.user}}
+#    group: {{.group}}
     exec: [ "/bin/bash", "-c", "rm -f '/var/lib/plex/Library/Application Support/Plex Media Server/plexmediaserver.pid' && ./start.sh" ]
     workingDirectory: /opt/plexmediaserver
     mountPoints:
-      - {name: db, path: /var/lib/plex, readOnly: false}
-      - {name: data, path: /data, readOnly: false}
+      - {name: plex-db, path: /var/lib/plex, readOnly: false}
+      - {name: plex-data, path: /data, readOnly: false}
