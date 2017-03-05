@@ -1,4 +1,4 @@
-name: aci.awired.net/aci-arch-bind:1
+name: aci.awired.net/aci-arch-bind:1-1
 
 build:
   mountPoints:
@@ -11,4 +11,4 @@ aci:
   app:
     exec: [/usr/bin/named, -f, -u, named]
     mountPoints:
-      - {name: bind-data, path: /var/bind, readOnly: false}
+      - {name: bind-data, path: /var/lib/bind, readOnly: false}

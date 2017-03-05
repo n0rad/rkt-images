@@ -1,6 +1,6 @@
 {{$data := .}}
 options {
-    directory "/var/named";
+    directory "/var/lib/bind";
     pid-file "/run/named/named.pid";
 
     recursion yes;
@@ -23,6 +23,16 @@ options {
     server-id none;
 };
 
+logging {
+    channel simple_log {
+        stderr;
+        severity info;
+    };
+    category default{
+        simple_log;
+    };
+};
+
 acl goodclients {
     {{.bind.allow}};
     localhost;
@@ -37,6 +47,11 @@ include "/etc/rndc.key";
 zone "." in {
         type hint;
         file "root.hint";
+};
+
+zone "1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa" {
+    type master;
+    file "localhost.ip6.zone";
 };
 
 zone "localhost" IN {
