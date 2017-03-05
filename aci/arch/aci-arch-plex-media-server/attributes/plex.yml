@@ -1,5 +1,0 @@
-default:
-  plex:
-    allowedNetworks: 192.168.40.0/255.255.255.0
-    allowMediaDeletion: 1
-    port: 32400
