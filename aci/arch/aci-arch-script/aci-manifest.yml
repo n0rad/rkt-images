@@ -1,0 +1,6 @@
+name: aci.awired.net/aci-arch-script:1
+aci:
+  dependencies:
+    - aci.awired.net/aci-arch
+  app:
+    exec: [ /script.sh ]
