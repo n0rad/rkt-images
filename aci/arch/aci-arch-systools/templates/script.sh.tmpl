@@ -1,0 +1,8 @@
+#!/dgr/bin/busybox sh
+set -e
+. /dgr/bin/functions.sh
+isLevelEnabled "debug" && set -x
+
+{{- range $key,$val := .script -}}
+{{$val}}
+{{- end -}}
