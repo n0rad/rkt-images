@@ -5,6 +5,10 @@ pod:
       dependencies:
         - aci.awired.net/aci-arch-nginx          # seahub create caches files needed by nginx
         - aci.awired.net/aci-arch-seafile-server # seafile-server as final dep for seafile user & group
+      app:
+        exec: [ /start.sh ]
+        mountPoints:
+          - {name: seafile-data, path: /seafile, readOnly: false}
 
     - dependencies:
         - aci.awired.net/aci-arch-mariadb
