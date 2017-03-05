@@ -1,0 +1,14 @@
+name: aci.awired.net/aci-arch-dhcp:{{.version}}-1
+
+build:
+  mountPoints:
+    - {from: /var/cache/pacman, to: /var/cache/pacman}
+    - {from: /var/lib/pacman/sync, to: /var/lib/pacman/sync}
+
+aci:
+  dependencies:
+    - aci.awired.net/aci-arch
+  app:
+    exec: [dhcpd, -f]
+    mountPoints:
+      - {name: dhcp-data, path: /var/lib/dhcp, readOnly: false}

@@ -1,0 +1,45 @@
+
+set vendor-id = option vendor-class-identifier;
+
+option domain-name "{{.dhcp.domainName}}";
+option domain-name-servers {{.pod.ip}};
+
+default-lease-time 60000;
+max-lease-time 720000;
+
+authoritative;
+
+#log-facility local7;
+
+ddns-update-style interim;
+ignore client-updates;
+
+{{- if .dhcp.rndc.key -}}
+include "/etc/rndc.key";
+{{- end -}}
+
+{{- range $index, $subset := .dhcp.subsets -}}
+subnet {{$subset.network}} netmask {{$subset.netmask}} {
+  {{- if $subset.interface -}}
+  interface {{$subset.interface}};
+  {{end}}
+  range {{$subset.range}};
+  option domain-name-servers {{$subset.domainNameServers}};
+  option domain-name "{{$subset.domainName}}";
+  option routers {{$subset.routers}};
+
+  ddns-updates on;
+  ddns-domainname "{{$subset.ddnsDomainName}}";
+  ddns-rev-domainname "{{$subset.ddnsRevDomainName}}";
+
+  {{- range $index, $zone := $subset.zones -}}
+  zone {{$zone.name}} {
+       primary {{$zone.primary}};
+       {{- if .dhcp.rndc.key -}}
+       key "rndc-key";
+       {{- end -}}
+  }
+  {{-end-}}
+
+}
+{{end}}
