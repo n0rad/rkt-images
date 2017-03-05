@@ -1,0 +1,10 @@
+default:
+  bind:
+    rndc:
+      key:
+      algorithm:
+
+    allow: 192.168.40.0/24
+    zones:
+     - example.loc
+     - 40.168.192.in-addr.arpa

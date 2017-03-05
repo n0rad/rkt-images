@@ -1,0 +1,71 @@
+{{$data := .}}
+options {
+    directory "/var/named";
+    pid-file "/run/named/named.pid";
+
+    recursion yes;
+    auth-nxdomain no;
+
+    dnssec-enable yes;
+    dnssec-validation yes;
+
+    listen-on-v6 { any; };
+    listen-on { any; };
+
+    allow-query { goodclients; };
+    allow-query-cache { goodclients; };
+    allow-query-cache-on { goodclients; };
+    allow-recursion { goodclients; };
+    allow-transfer { none; };
+
+    version none;
+    hostname none;
+    server-id none;
+};
+
+acl goodclients {
+    {{.bind.allow}};
+    localhost;
+    localnets;
+};
+
+{{- if .bind.rndc.key -}}
+include "/etc/rndc.key";
+{{- end -}}
+
+
+zone "." in {
+        type hint;
+        file "root.hint";
+};
+
+zone "localhost" IN {
+        type master;
+        file "localhost.zone";
+};
+
+zone "0.0.127.in-addr.arpa" IN {
+    type master;
+    file "127.0.0.zone";
+};
+
+zone "255.in-addr.arpa" IN {
+    type master;
+    file "empty.zone";
+};
+
+zone "0.in-addr.arpa" IN {
+    type master;
+    file "empty.zone";
+};
+
+{{- range $index, $name := .bind.zones -}}
+zone "{{$name}}" {
+        type master;
+        file "{{$name}}.zone";
+       {{- if $data.rndc.key -}}
+        allow-update {key "rndc-key"; };
+       {{- end -}}
+};
+{{end}}
+
