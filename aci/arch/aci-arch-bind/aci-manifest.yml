@@ -1,4 +1,4 @@
-name: aci.awired.net/aci-arch-bind:1-1
+name: aci.awired.net/aci-arch-bind:1.0-1
 
 build:
   mountPoints:
