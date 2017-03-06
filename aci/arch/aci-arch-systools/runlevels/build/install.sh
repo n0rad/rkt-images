@@ -8,6 +8,7 @@ package_names=$(echo " \
     zsh \
     oh-my-zsh-git \
     fuse \
+    sshfs \
     atop \
     bash-completion \
     htop \
