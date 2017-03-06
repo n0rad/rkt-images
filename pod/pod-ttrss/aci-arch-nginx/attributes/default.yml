@@ -16,3 +16,18 @@ override:
         "        include fastcgi_params;",
         "}",
       ]
+
+#  mysql:
+#    init:
+#      active: true
+#      db: ttrss
+#      user: ttrss_user
+#      password: j2xt5LARYthFVKm
+#
+#
+#  ttrss:
+#    db:
+#      name: ""
+#      user: ""
+#      password: ""
+#    url: http://localhost
