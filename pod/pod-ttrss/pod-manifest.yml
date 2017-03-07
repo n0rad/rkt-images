@@ -6,6 +6,8 @@ pod:
         - aci.awired.net/aci-ttrss
         - aci.awired.net/aci-arch-php-fpm
         - aci.awired.net/aci-arch-nginx
+      app:
+        exec: [ "/start.sh" ]
 
     - dependencies:
         - aci.awired.net/aci-arch-mariadb
