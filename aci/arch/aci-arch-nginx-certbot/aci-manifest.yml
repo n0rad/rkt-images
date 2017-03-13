@@ -1,0 +1,14 @@
+name: aci.awired.net/aci-arch-nginx-certbot:{{.version}}-1
+
+build:
+  mountPoints:
+    - {from: /var/cache/pacman, to: /var/cache/pacman}
+    - {from: /var/lib/pacman/sync, to: /var/lib/pacman/sync}
+
+aci:
+  dependencies:
+    - aci.awired.net/aci-arch-nginx
+  app:
+    exec: ["/start.sh"]
+    mountPoints:
+      - {name: certbot-data, path: /var/lib/letsencrypt, readOnly: false}
