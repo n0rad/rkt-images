@@ -11,4 +11,4 @@ aci:
   app:
     exec: ["/start.sh"]
     mountPoints:
-      - {name: certbot-data, path: /var/lib/letsencrypt, readOnly: false}
+      - {name: letsencrypt-data, path: /etc/letsencrypt, readOnly: false}
