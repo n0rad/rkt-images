@@ -1,4 +1,0 @@
-default:
-  ssh:
-    id: 14242
-    name: admin

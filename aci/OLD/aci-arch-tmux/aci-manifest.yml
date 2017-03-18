@@ -1,9 +1,0 @@
-name: aci.awired.net/aci-arch-tmux:{{.version}}
-
-builder:
-  dependencies:
-    - aci.awired.net/aci-arch-git
-    - aci.awired.net/aci-arch-yaourt
-aci:
-  dependencies:
-    - aci.awired.net/aci-common:1
