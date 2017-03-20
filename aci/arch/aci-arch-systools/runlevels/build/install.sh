@@ -34,6 +34,7 @@ package_names=$(echo " \
     vim \
     dnsutils \
     libstatgrab \
+    rsync \
     ")
 
 su -c "yaourt -S ${package_names} --noconfirm" yaourt
