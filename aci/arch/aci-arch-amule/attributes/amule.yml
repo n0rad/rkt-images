@@ -1,0 +1,6 @@
+default:
+  amule:
+    server:
+      password: aa
+    client:
+      password: qq
