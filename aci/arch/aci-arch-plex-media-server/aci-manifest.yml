@@ -1,4 +1,4 @@
-name: aci.awired.net/aci-arch-plex-media-server:{{.version}}-4
+name: aci.awired.net/aci-arch-plex-media-server:{{.version}}-5
 
 build:
   mountPoints:
