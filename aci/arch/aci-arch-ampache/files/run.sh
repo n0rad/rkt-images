@@ -3,4 +3,6 @@ set -e
 . /dgr/bin/functions.sh
 isLevelEnabled "debug" && set -x
 
-ln -s /piwigo /srv/http
+mkdir -p /run/php-fpm
+/usr/sbin/php-fpm
+/usr/sbin/nginx -g "daemon off;"

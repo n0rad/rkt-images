@@ -1,5 +1,4 @@
-name: aci.awired.net/aci-piwigo:2.8.6-1
-
+name: aci.awired.net/aci-arch-ampache:{{.version}}-5
 
 build:
   mountPoints:
@@ -8,6 +7,9 @@ build:
 
 aci:
   dependencies:
-    - aci.awired.net/aci-arch-nginx
+    - aci.awired.net/aci-arch
   app:
-    exec: [ "/usr/sbin/nginx","-g","daemon off;" ]
+    exec: [ "/run.sh" ]
+    mountPoints:
+      - {name: ampache-media, path: /usr/share/webapps/ampache/data, readOnly: true}
+      - {name: ampache-config, path: /usr/share/webapps/ampache/config, readOnly: false}

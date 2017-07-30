@@ -4,7 +4,7 @@ set -e
 isLevelEnabled "debug" && set -x
 
 # update packages
-pacman -Sy
+pacman -Syu --noconfirm
 
 # update keyring
 #pacman-key --refresh-keys || true
