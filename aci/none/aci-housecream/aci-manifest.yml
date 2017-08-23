@@ -1,0 +1,7 @@
+name: aci.awired.net/aci-housecream:1-1
+
+aci:
+  app:
+    exec: [/usr/bin/housecream]
+  dependencies:
+      - aci.awired.net/aci-glibc:2.21-1
