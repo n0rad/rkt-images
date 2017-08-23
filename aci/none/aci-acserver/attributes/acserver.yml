@@ -1,7 +1,12 @@
 default:
   acserver:
-    username: admin
-    password: pass
-    unsigned: true
-    https: false
-    port: 80
+    api:
+      port: 80
+      https: false
+      username:
+      password:
+    storage:
+      rootPath: /data
+      unsigned: false
+      allowOverride: false
+
