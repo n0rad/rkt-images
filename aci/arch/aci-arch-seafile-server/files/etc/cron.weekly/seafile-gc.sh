@@ -14,7 +14,7 @@
 
 # stop the server
 echo Stopping the Seafile-Server...
-/seafile/seafile-server-latest/seafile-server stop
+sudo -u seafile /seafile/seafile-server-latest/seafile.sh stop
 
 echo Giving the server some time to shut down properly....
 sleep 10
@@ -22,12 +22,13 @@ sleep 10
 # run the cleanup
 echo Seafile cleanup started...
 sudo -u seafile /seafile/seafile-server-latest/seaf-gc.sh -r
+sudo -u seafile /seafile/seafile-server-latest/seaf-gc.sh
 
 echo Giving the server some time....
 sleep 3
 
 # start the server again
 echo Starting the Seafile-Server...
-/seafile/seafile-server-latest/seafile-server start
+sudo -u seafile /seafile/seafile-server-latest/seafile.sh start
 
 echo Seafile cleanup done!
