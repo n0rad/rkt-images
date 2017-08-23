@@ -1,0 +1,13 @@
+name: aci.awired.net/aci-arch-piwigo:2.8.6-1
+
+
+build:
+  mountPoints:
+    - {from: /var/cache/pacman, to: /var/cache/pacman}
+    - {from: /var/lib/pacman/sync, to: /var/lib/pacman/sync}
+
+aci:
+  dependencies:
+    - aci.awired.net/aci-arch-nginx
+  app:
+    exec: [ "/usr/sbin/nginx","-g","daemon off;" ]
