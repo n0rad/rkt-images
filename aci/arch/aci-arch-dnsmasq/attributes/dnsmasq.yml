@@ -1,0 +1,32 @@
+default:
+  dnsmasq:
+    - filterwin2k
+
+    # DHCP
+    - log-dhcp
+    - dhcp-range=192.168.42.200,192.168.42.250,12h
+    - dhcp-option=1,255.255.255.0 # Netmask
+    - dhcp-option=3,192.168.42.8 # Route
+
+    - dhcp-boot=/arch/boot/syslinux/lpxelinux.0
+    - dhcp-option-force=209,boot/syslinux/pxe.cfg
+    - dhcp-option-force=210,/arch/
+    - dhcp-option-force=66,192.168.42.129
+
+    # tftp
+    - enable-tftp
+    - tftp-root=/pxe
+
+    # DNS
+#    - port=0
+    - domain-needed
+    - bogus-priv
+    - no-hosts
+    - dns-forward-max=150
+    - cache-size=1000
+#    - no-negcache
+    - neg-ttl=3600
+    - server=8.8.8.8
+    - server=8.8.4.4
+#    - resolv-file=/etc/resolv.dnsmasq
+    - no-poll
