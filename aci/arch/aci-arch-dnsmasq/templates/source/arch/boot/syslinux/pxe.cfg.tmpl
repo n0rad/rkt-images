@@ -7,5 +7,5 @@ ENDTEXT
 MENU LABEL Automatic install Arch Linux (x86_64)
 LINUX boot/x86_64/vmlinuz
 INITRD boot/intel_ucode.img,boot/x86_64/archiso.img
-APPEND archisobasedir=arch archiso_http_srv=http://${pxeserver}/ script=http://192.168.42.129/auto-provisioning.sh
+APPEND archisobasedir=arch archiso_http_srv=http://${pxeserver}/ script=http://{{.pod.ip}}/provisioning.sh
 SYSAPPEND 3

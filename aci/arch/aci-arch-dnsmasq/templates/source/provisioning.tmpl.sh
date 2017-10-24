@@ -20,26 +20,24 @@ echo_yellow() {
 }
 
 
-disk=/dev/sda
-hostname=srv1
-ip=192.168.42.65
-gateway=192.168.42.8
-newuser=admin
-mirror="http://archlinux.mirrors.ovh.net/archlinux/\$repo/os/\$arch"
+disk="{{.server.disk}}"
+hostname="{{.server.hostname}}"
+ip="{{.server.ip}}"
+gateway="{{.server.gateway}}"
+newuser="{{.server.newuser}}"
+newuser_pubkey="{{.server.newuser.publickey}}"
+#mirror="http://archlinux.mirrors.ovh.net/archlinux/\$repo/os/\$arch"
 pingcheckhost="google.fr"
 #mymac=$(ip addr show dev ens3 | sed -rn 's#^\s+link/ether ([0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}).*$#\1#p')
 
 
 echo_purple "Preparing install system ..."
 loadkeys fr
-if [ -z ${mirror} ]; then
+if [ ${mirror} != "" ]; then
     cat <<EOF >/etc/pacman.d/mirrorlist
 Server = ${mirror}
 EOF
 fi
-
-
-
 
 if [ ! $(ls ${disk}?) ]; then
     echo_purple "Disk is not ready ..."
@@ -55,7 +53,6 @@ if [ ! $(ls ${disk}?) ]; then
 fi
 
 echo_purple "Mounting ..."
-
 mkfs.ext3 -F ${disk}1 # TODO
 mkfs.ext4 -F ${disk}2
 
@@ -106,7 +103,7 @@ cat <<EOF >/mnt/boot/syslinux/syslinux.cfg
 serial 0 115200
 DEFAULT arch
 PROMPT 0
-TIMEOUT 30
+TIMEOUT 0
 UI menu.c32
 
 LABEL arch
@@ -115,24 +112,6 @@ LABEL arch
 	APPEND root=${disk}2 rw logo.nologo elevator=deadline nomodeset
 	INITRD ../initramfs-linux.img
 EOF
-
-#cat <<EOF >/mnt/etc/ssh/sshd_config
-#Port 22
-#Protocol 2
-#PermitRootLogin yes
-#PubkeyAuthentication yes
-#AuthorizedKeysFile      .ssh/authorized_keys
-#PasswordAuthentication no
-#ChallengeResponseAuthentication no
-#UsePAM yes
-#GatewayPorts clientspecified
-#PrintMotd no # pam does that
-#UsePrivilegeSeparation sandbox          # Default for new installations.
-#Ciphers aes256-ctr,aes192-ctr,aes128-ctr
-#Subsystem       sftp    internal-sftp
-#Match Group "ssh-password"
-#        PasswordAuthentication yes
-#EOF
 
 arch-chroot /mnt mkinitcpio -p linux
 arch-chroot /mnt syslinux-install_update -aim
@@ -144,7 +123,7 @@ touch /mnt/home/${newuser}/.ssh/authorized_keys
 chmod 700 /mnt/home/${newuser}/.ssh
 chmod 600 /mnt/home/${newuser}/.ssh/authorized_keys
 cat <<EOF > /mnt/home/${newuser}/.ssh/authorized_keys
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOOSa+5onVgBFTMby21u0KQnL6ZCAMV6sYVGC1gkQjrsJSjdFTtnCte9raZGJyBB3EcKLy4BtIhcwjMjCTGptNPsneXcGFq81tLQqWj4Lpr+qcemfRHjtiBs+avi6us2EN5K/cMeKDgNl6GrEmRHBrwgrJunVhfU0DuiWN2ycr9ijlCTienV3YM1S/TOCCqygQOH04dCSftd8Vq9HNnDS6JWtlZR1Beo3LjAEuYT4y30zjuRqpMmbCM+7cS4dDlzI8ynALCKh7ExKsUFGlUhDlV/ThFyjfnUfPXk1x6oaTzHf+hJ7GGQATxvunwkrkueewaw99KFcbegXXoSEJEFXt alemaire@norad.fr
+${newuser_pubkey}
 EOF
 arch-chroot /mnt chown -R ${newuser}:users /home/${newuser}/.ssh
 arch-chroot /mnt passwd -d ${newuser} # just in case
