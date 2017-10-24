@@ -1,12 +1,15 @@
 default:
-  server:
-    disk: /dev/sda
-    hostname: srv1
-    ip: 192.168.42.65
-    gateway: 192.168.42.8
-    dns:
-      - 192.168.42.3
-      - 192.168.42.4
-    newuser:
-      name: admin
-      publickey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOOSa+5onVgBFTMby21u0KQnL6ZCAMV6sYVGC1gkQjrsJSjdFTtnCte9raZGJyBB3EcKLy4BtIhcwjMjCTGptNPsneXcGFq81tLQqWj4Lpr+qcemfRHjtiBs+avi6us2EN5K/cMeKDgNl6GrEmRHBrwgrJunVhfU0DuiWN2ycr9ijlCTienV3YM1S/TOCCqygQOH04dCSftd8Vq9HNnDS6JWtlZR1Beo3LjAEuYT4y30zjuRqpMmbCM+7cS4dDlzI8ynALCKh7ExKsUFGlUhDlV/ThFyjfnUfPXk1x6oaTzHf+hJ7GGQATxvunwkrkueewaw99KFcbegXXoSEJEFXt alemaire@norad.fr
+  servers:
+    - product_uuid: '0BC1AF18-0D59-49D1-9A72-C40D8EE4D1AC'
+      scriptProvisioning: server.sh
+      scriptVars:
+        disk: /dev/sda
+        hostname: srv1
+        ip: 192.168.42.65
+        gateway: 192.168.42.8
+        dns:
+          - 192.168.42.3
+          - 192.168.42.4
+        newuser:
+          name: admin
+          publickey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOOSa+5onVgBFTMby21u0KQnL6ZCAMV6sYVGC1gkQjrsJSjdFTtnCte9raZGJyBB3EcKLy4BtIhcwjMjCTGptNPsneXcGFq81tLQqWj4Lpr+qcemfRHjtiBs+avi6us2EN5K/cMeKDgNl6GrEmRHBrwgrJunVhfU0DuiWN2ycr9ijlCTienV3YM1S/TOCCqygQOH04dCSftd8Vq9HNnDS6JWtlZR1Beo3LjAEuYT4y30zjuRqpMmbCM+7cS4dDlzI8ynALCKh7ExKsUFGlUhDlV/ThFyjfnUfPXk1x6oaTzHf+hJ7GGQATxvunwkrkueewaw99KFcbegXXoSEJEFXt alemaire@norad.fr
