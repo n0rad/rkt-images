@@ -52,13 +52,13 @@ sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/g' ${M
 arch-chroot ${MOUNT_PATH} grub-mkconfig -o /boot/grub/grub.cfg
 arch-chroot ${MOUNT_PATH} grub-install --force /dev/vda
 
-echo "Configuring base system.."
+#echo "Configuring base system.."
 
-sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' ${MOUNT_PATH}/etc/locale.gen
-arch-chroot ${MOUNT_PATH} locale-gen
-echo LANG=en_US.UTF-8 > ${MOUNT_PATH}/etc/locale.conf
-
-ln -s /usr/share/zoneinfo/Europe/Zurich ${MOUNT_PATH}/etc/localtime
+#sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' ${MOUNT_PATH}/etc/locale.gen
+#arch-chroot ${MOUNT_PATH} locale-gen
+#echo LANG=en_US.UTF-8 > ${MOUNT_PATH}/etc/locale.conf
+#
+#ln -s /usr/share/zoneinfo/Europe/Zurich ${MOUNT_PATH}/etc/localtime
 arch-chroot ${MOUNT_PATH} hwclock --systohc --utc
 
 echo ${HOSTNAME} > ${MOUNT_PATH}/etc/hostname

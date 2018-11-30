@@ -5,7 +5,8 @@ isLevelEnabled "debug" && set -x
 
 DGR_PATH=/dgr
 
-export IP=$(ip addr | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p' | head -n 1)
+export IP=$(ip route get 8.8.8.8 | head -1 | sed 's/.*src \([a-z0-9.:]*\).*/\1/g')
+
 export HOSTNAME=`hostname`
 #[ ! -z "$DOMAINNAME" ] && FQDN=${HOSTNAME}.${DOMAINNAME} || FQDN=$HOSTNAME
 

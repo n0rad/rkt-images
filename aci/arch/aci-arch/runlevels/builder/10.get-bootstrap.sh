@@ -18,7 +18,7 @@ mkdir -p ${CACHE} && cd ${CACHE}
 tar --strip-components 1 -C ${BOOTSTRAP} -xzf ${FILENAME}
 
 # entropy
-HAVEGED_FILE=haveged-1.9.1-3-x86_64.pkg.tar.xz
+HAVEGED_FILE=haveged-1.9.1-4-x86_64.pkg.tar.xz
 [ -f ${HAVEGED_FILE} ] || wget http://archlinux.mirrors.ovh.net/archlinux/extra/os/x86_64/${HAVEGED_FILE}
 tar -C ${BOOTSTRAP} -xf ${HAVEGED_FILE}
 

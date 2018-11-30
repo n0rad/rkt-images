@@ -9,7 +9,7 @@ aci:
   dependencies:
     - aci.awired.net/aci-arch
   app:
-    exec: [ bash, -c, "dnsmasq && darkhttpd /pxe" ]
+    exec: [ bash, -c, "dnsmasq -q && darkhttpd /pxe" ]
     mountPoints:
       - {name: dnsmasq-iso, path: /data, readOnly: false}
       - {name: dnsmasq-data, path: /var/lib/misc, readOnly: false}

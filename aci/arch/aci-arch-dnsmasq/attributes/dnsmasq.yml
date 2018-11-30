@@ -27,8 +27,6 @@ default:
 #    - local=/lmr.loc/
 #    - no-hosts
 #    - domain=lmr.loc
-#    - cache-size=500
+#    - cache-size=1000
 #    - server=8.8.8.8
 #    - server=8.8.4.4
-
-# dig . ns

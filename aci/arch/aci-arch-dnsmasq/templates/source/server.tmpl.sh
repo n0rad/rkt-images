@@ -78,7 +78,7 @@ KEYMAP=fr
 FONT=
 EOF
 
-# todo this should be run only once since only one boot
+# todo this should be run only once since only one /boot
 cat <<EOF >/mnt/boot/syslinux/syslinux.cfg
 serial 0 115200
 DEFAULT arch
@@ -114,6 +114,16 @@ arch-chroot /mnt passwd -l root
 cat <<EOF > /mnt/etc/sudoers.d/wheel
 %wheel ALL=(ALL) ALL
 EOF
+
+# clock TODO
+arch-chroot /mnt hwclock --systohc --utc
+arch-chroot /mnt pacman --noconfirm -S ntp
+arch-chroot /mnt ntpdate ${NTP_SERVER}
+sed -i 's/^server/#server/g' ${MOUNT_PATH}/etc/ntp.conf
+echo "server ${NTP_SERVER}" >> ${MOUNT_PATH}/etc/ntp.conf
+arch-chroot /mnt systemctl enable ntpd.service
+
+
 
 arch-chroot /mnt systemctl enable multi-user.target sshd systemd-networkd systemd-resolved # haveged
 ln -sf /run/systemd/resolve/resolv.conf /mnt/etc/resolv.conf
